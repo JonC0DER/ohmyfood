@@ -1,0 +1,165 @@
+@media screen and (min-width:767px) and (max-width:991px) {
+    @import 'default.scss';
+    :root{
+        min-width:767px;
+        max-width: 991px;
+        width:100% auto;
+    }
+
+    header {
+        align-items: center;
+        > p{
+            height:35px;
+        }
+    }
+    section#decouverte{
+        padding-bottom: 4px;
+        background-color: #eaeaea;
+        box-shadow: 0px 3px 3px #9e9e9e;
+        
+        > div{ 
+            flex: 50%;
+        }
+        div.map{
+            @extend %column;
+            height:250px;
+            span.map_title{
+                @extend %jstfy_c_center;
+                height:40px;
+                padding:15px 0 15px 0;
+                background-color: #eaeaea;
+                i{
+                    margin-right: 15px; 
+                }
+            }
+            p.openstreetmap{
+                height:210px;
+            }
+        }
+        div.reservation{
+            background-color: #f6f6f6;
+            @extend %column;
+            height: 250px;
+            justify-content: space-between;
+            align-items: center;
+            text-align: center;
+            padding: 30px;
+            button{
+                @extend %btn;
+                @extend %bg_grad;
+            }
+        }   
+    }
+
+    section#fonctionnement{
+        height:300px;
+        padding-top: 50px;
+        padding-bottom: 40px;
+        @extend %column;
+        justify-content: space-around;
+
+        h1{
+            margin-left: 15px;
+            margin-bottom: 10px;
+            width: 100%;
+        }
+        ul.menu_fonctionnement{
+            justify-content: space-around;
+        }
+        div{
+            @extend %btn-fc;
+            display: flex;
+            align-items:baseline ;
+            margin:auto; 
+            font-weight: bold;
+            font-size: 91%;
+            span{
+                margin-left: -35px;
+                margin-right: 20px;
+                color:white;
+                padding: 7px;
+                background-color: $cprimaire;
+                @extend %circle;
+            }
+            i{
+                font-size: 120%;
+                margin-right: 20px;
+                color:gray;
+            }
+        }
+        div:hover{
+            background-color: rgba($cprimaire,.2);
+            i{
+                color:$cprimaire;
+            }
+        }
+    }
+
+    section#restaurant{
+        @extend %column;
+        justify-content: space-around;
+        flex-wrap: wrap;
+        height:900px;
+        background-color: #f6f6f6;
+        padding-top: 50px;
+        padding-bottom: 50px;
+        h1{
+            align-self: flex-start;
+            margin-left: 20px;
+            padding-bottom: 15px;
+        }
+        ul.menu_restaurant{
+            height: 700px;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            align-content: space-around;
+            li{
+                width: 45%;
+            }
+        }
+        div.card{
+            @extend %column;
+            @extend %card;
+            width:100%;
+            picture{
+                height:70%;
+            }
+            div.card_txt{
+                padding: 15px;
+                height:30%;
+                justify-content: space-between;
+
+                
+            }
+        }
+    }
+    footer{
+        @extend %column;
+        background-color: #353535;
+        padding:20px;
+        h2,a{
+            color: white;
+            line-height: 30px;
+        }
+        h2{
+            margin-bottom: 20px;
+        }
+        ul{
+            display: flex;
+            justify-content: flex-start;
+            i{
+                margin-right: 10px;
+            }
+            li{
+                margin-right:8%;
+            }
+            li:nth-child(1) i{
+                font-size: 90%;
+            }
+            li:nth-child(2) i{
+                font-size: 60%;
+            }
+        }
+    }
+
+}

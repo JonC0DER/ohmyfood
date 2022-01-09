@@ -1,9 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Shrikhand&display=swap');
-h1,h2{
+title, .logo{
     font-family: 'Shrikhand', cursive;
 }
-h3,h4,h5,h6,p,i{
+h1,h2,h3,h4,h5,h6,p{
     font-family: 'Roboto', sans-serif;
 }
 $cprimaire : #9356DC;
@@ -14,12 +14,6 @@ $ctertiaire : #99E2D0;
     box-sizing: border-box;
     padding: 0;
     margin: 0;
-}
-
-:root{
-    min-width:320px;
-    max-width: 425px;
-    width:100%;
 }
 
 %jstfy_c_center{
@@ -87,7 +81,8 @@ header, section, footer{
     width: 100%;
 }
 header, section, footer,
-div.map, div.reservation, div.card, div.card_txt{
+div.map, span.map_title, div.reservation,
+ul.menu_fonctionnement,ul.menu_restaurant, div.card, div.card_txt{
     display: flex;
 }
 header{
@@ -99,134 +94,43 @@ header{
         width: 50%;
     }
 }
-section#decouverte{
-    @extend %column;
-    div.map{
-        @extend %jstfy_c_center;
-        height:40px;
-        padding:15px 0 15px 0;
-        background-color: #eaeaea;
-        i{
-            margin-right: 15px; 
-        }
-    }
-    div.reservation{
-        background-color: #f6f6f6;
-        @extend %column;
-        height: 250px;
-        justify-content: space-between;
-        align-items: center;
-        text-align: center;
-        padding: 30px;
-        button{
-            @extend %btn;
-            @extend %bg_grad;
-        }
-    }   
-}
-section#fonctionnement{
-    height:400px;
-    padding-bottom: 40px;
-    @extend %column;
-    justify-content: space-around;
-    h1{
-        margin-left: 15px;
-        margin-bottom: 10px;
-    }
-    div{
-        @extend %btn-fc;
-        display: flex;
-        align-items:baseline ;
-        margin:auto; 
-        font-weight: bold;
-        font-size: 91%;
-        span{
-            margin-left: -35px;
-            margin-right: 20px;
-            color:white;
-            padding: 7px;
-            background-color: $cprimaire;
-            @extend %circle;
-        }
-        i{
-            font-size: 120%;
-            margin-right: 20px;
-            color:gray;
-        }
-    }
-    div:hover{
-        background-color: rgba($cprimaire,.2);
-        i{
-            color:$cprimaire;
-        }
-    }
-}
+div.icon_container{
+    overflow: hidden;
+    position: relative;
+    /*transform: scale(0.15);
+    width: 125%;
+    height: 220px;*/
+    width: 30px;
+    height: 30px;
 
-section#restaurant{
-    @extend %column_algn_center;
-    justify-content: space-around;
-    height:1250px;
-    background-color: #f6f6f6;
-    padding-bottom: 50px;
-    a{
-        width:90%;
+    i:nth-child(1){
+        font-size: 22px;
+        position: absolute;
+        z-index: 1;
+        top:-1px;
     }
-    div.card{
-        @extend %column;
-        @extend %card;
-        picture{
-            height:70%;
-        }
-        div.card_txt{
-            padding: 15px;
-            height:30%;
-            justify-content: space-between;
-            span{
-                position: relative;
-                background-color: olive;
-                width:30px;
-                height: 50%;
-                img,i{
-                    position: absolute;
-                }
-                i{
-                    top:10%;
-                    left:15%;
-                    font-size: 130%;
-
-                    mask-image: linear-gradient(
-                        355deg,
-                        rgba(2, 0, 36, 1) 0%,
-                        rgba(147, 86, 220, 1) 0%,
-                        rgba(255, 121, 218,1) 100%
-                    );
-                }
-                img.heart{
-                    width: 100%;
-                    background-image: url("./icons/heart-regular.svg");
-                }
-            }
-        }
+    i:nth-child(2){
+        font-size: 20px;
+        background: linear-gradient(
+            350deg,black 0%, #9356DC 0%,#FF79DA 100%);
+        -webkit-background-clip:text;
+        -webkit-text-fill-color:transparent;
+        transition:  2s ease;
     }
-}
-footer{
-    flex-direction: column;
-    background-color: #353535;
-    padding:20px;
-    h2,a{
-        color: white;
-        line-height: 30px;
+    i:nth-child(2)::after{
+        position: absolute;
+        top:0;
+        left:0;
+        content:'\f004';
+        background:white;
+        -webkit-background-clip:text;
+        -webkit-text-fill-color:transparent;
+        opacity:1;
+        height:90%;
+        transition: opacity 2s ease-in, height .8s ease-in;
     }
-    h2{
-        margin-bottom: 20px;
-    }
-    i{
-        margin-right: 10px;
-    }
-    li:nth-child(1) i{
-        font-size: 90%;
-    }
-    li:nth-child(2) i{
-        font-size: 60%;
-    }
+} 
+div.icon_container:hover i:nth-child(2)::after{
+    opacity: 0;
+    height:1%;
 }
