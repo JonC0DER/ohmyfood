@@ -28,11 +28,11 @@
     align-items: center;
   }
 
-  section#decouverte div.reservation button {
+  section#menus input[type=submit], section#decouverte div.reservation button {
     background: linear-gradient(355deg, #020024 0%, #9356dc 0%, #ff79da 100%);
   }
 
-  section#decouverte div.reservation button {
+  section#menus input[type=submit], section#decouverte div.reservation button {
     width: fit-content;
     padding: 20px;
     border-radius: 50px/50px;
@@ -145,6 +145,7 @@ ul.menu_fonctionnement, ul.menu_restaurant, div.card, div.card_txt {
     width: 100%;
   }
 
+  /*+++++++++++++++++++++++++++++++++++ HOME */
   section#decouverte div.map span.map_title {
     height: 40px;
     padding: 15px 0 15px 0;
@@ -235,6 +236,93 @@ ul.menu_fonctionnement, ul.menu_restaurant, div.card, div.card_txt {
     justify-content: space-between;
   }
 
+  /*+++++++++++++++++++++++++++++++++++ MENUS */
+  section#restaurant_picture picture {
+    position: relative;
+  }
+  section#restaurant_picture picture figcaption {
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
+    position: absolute;
+    bottom: 0;
+    padding-top: 15px;
+    width: 100%;
+    border-radius: 25px 25px 0px 0px;
+    background-color: #f6f6f6;
+  }
+  section#restaurant_picture picture figcaption h1 {
+    margin-right: 20px;
+  }
+
+  section#menus {
+    background-color: #f6f6f6;
+  }
+  section#menus form > div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    height: 400px;
+  }
+  section#menus .choice_btn {
+    display: flex;
+    justify-content: space-between;
+    background-color: white;
+    border-radius: 15px;
+    cursor: pointer;
+    overflow: hidden;
+    width: 90%;
+    box-shadow: 0px 0px 5px gray;
+  }
+  section#menus .choice_btn div.btn_txt {
+    padding: 15px;
+    width: 85%;
+  }
+  section#menus .choice_btn div.checkbox {
+    position: relative;
+    left: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 15%;
+    background-color: #99E2D0;
+    transition: left 0.3s ease-in;
+  }
+  section#menus .choice_btn div.checkbox span.checkmark {
+    border-radius: 20px;
+    width: 25px;
+    height: 25px;
+    transform: rotate(360deg);
+    background-color: white;
+    transition: transform 0.8s ease-out;
+  }
+  section#menus .choice_btn div.checkbox span.checkmark::after {
+    content: "";
+    position: absolute;
+    margin-left: 25.7%;
+    margin-top: 5.5%;
+    width: 8px;
+    height: 13px;
+    border: solid #99E2D0;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+    opacity: 0;
+    transition: opacity 2s ease;
+  }
+  section#menus input[type=checkbox] {
+    display: none;
+  }
+  section#menus input[type=checkbox]:checked + label span.checkmark {
+    transform: rotate(0deg);
+  }
+  section#menus input[type=checkbox]:checked + label span.checkmark:after {
+    opacity: 1;
+  }
+  section#menus input[type=checkbox]:checked + label div.checkbox {
+    left: 0px;
+  }
+  /*+++++++++++++++++++++++++++++++++++ FOOTER */
   footer {
     flex-direction: column;
     background-color: #353535;
