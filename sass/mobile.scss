@@ -5,6 +5,13 @@
         max-width: 425px;
         width:100%;
     }
+    /*+++++++++++++++++++++++++++++++++++ HEADER */
+    header a{
+        width:fit-content;
+        position: absolute;
+        left:10px;
+        align-self: center;
+    }
     /*+++++++++++++++++++++++++++++++++++ HOME */
     section#decouverte{
         @extend %column;
@@ -38,6 +45,7 @@
             }
         }   
     }
+    /*+++++++++++++++++++++++ FONCTIONNEMENT (Choisissez, Composez, Degustez) */   
     section#fonctionnement{
         height:500px;
         padding-top: 50px;
@@ -83,7 +91,7 @@
             }
         }
     }
-
+    /*+++++++++++++++++++++++++++++++++ restaurant cards section */
     section#restaurant{
         @extend %column_algn_center;
         justify-content: space-around;
@@ -118,7 +126,7 @@
             }
         }
     }
-    /*+++++++++++++++++++++++++++++++++++ MENUS */
+    /*+++++++++++++++++++++++++++++++++++ PAGES des MENUS */
     section#restaurant_picture{
         picture{
             position:relative;
@@ -142,13 +150,46 @@
     }
     section#menus{
         background-color: #f6f6f6;
-        form > div{
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: space-around;
-            height: 400px;
+        form{
+            width:100%;
+            h2{
+                position: relative;
+                width: fit-content;
+                margin-left:5%;
+                font-size:small;
+            
+                &:after{
+                    position: absolute;
+                    content:"";
+                    border-bottom: 2px solid $ctertiaire;
+                    width:28px;
+                    left: 0;
+                    bottom: -5px;
+                    
+                }
+            }
+            > div{
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: space-around;
+            }
+            div.plats, div.entrees, div.desserts {
+                height: 300px;
+            }
+            div.submit{
+                height:100px;
+
+                input[type="submit"]{
+                    @extend %btn;
+                    @extend %bg_grad;
+                    width: 50%;
+                    font-weight: bold;
+                    font-size: 105%;
+                }
+            }
         }
+        /*+++++++++++++++++++++++ definition du bouton label */
         .choice_btn{
             display: flex;
             justify-content: space-between;
@@ -161,7 +202,24 @@
 
             div.btn_txt{
                 padding: 15px;
-                width:85%;
+                width:100%;
+                transition: width .5s ease-in;
+                span{
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: baseline;
+                    white-space: nowrap;
+                }
+                p,h3{
+                    white-space: nowrap;
+                    overflow: hidden;
+                }
+                h3{
+                    font-size: 95%;
+                }
+                p{
+                    font-size: 85%;
+                }
             } 
             div.checkbox{
                 position: relative;
@@ -169,10 +227,11 @@
                 display: flex;
                 justify-content: center;
                 align-items: center;
-                width:15%;
+                width:0%;
                 background-color: $ctertiaire;
-                transition: left .3s ease-in;
-            
+                transition: left .3s ease-in, width .5s ease-in;
+                
+                /*++++++++++++++++++++++++ desing et comportement virgule de validation */
                 span.checkmark{
                     border-radius: 20px;
                     width:25px;
@@ -197,21 +256,29 @@
             }
         }
 
+        /*+++++++++++++++++++++++++++++++++++ fonctionnement du input */
         input[type="checkbox"]{
             display: none;
-        }
-        input[type="checkbox"]:checked + label span.checkmark{
-            transform: rotate(0deg);
-        }
-        input[type="checkbox"]:checked + label span.checkmark:after{
-            opacity: 1;
-        }
-        input[type="checkbox"]:checked + label div.checkbox{
-            left: 0px;
-        }        
-        input[type="submit"]{
-            @extend %btn;
-            @extend %bg_grad;
+
+            &:checked + label{
+                .btn_txt{
+                    width:85%;
+                    p,h3{
+                        text-overflow: ellipsis;
+                    }
+                }
+                span.checkmark{
+                    transform: rotate(0deg);
+                }
+                span.checkmark:after{
+                    opacity: 1;
+                }
+                div.checkbox{
+                    left:0px;
+                    width:15%;
+                }
+            }
+            
         }
     }
     /*+++++++++++++++++++++++++++++++++++ FOOTER */

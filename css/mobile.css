@@ -28,11 +28,11 @@
     align-items: center;
   }
 
-  section#menus input[type=submit], section#decouverte div.reservation button {
+  section#menus form div.submit input[type=submit], section#decouverte div.reservation button {
     background: linear-gradient(355deg, #020024 0%, #9356dc 0%, #ff79da 100%);
   }
 
-  section#menus input[type=submit], section#decouverte div.reservation button {
+  section#menus form div.submit input[type=submit], section#decouverte div.reservation button {
     width: fit-content;
     padding: 20px;
     border-radius: 50px/50px;
@@ -145,6 +145,14 @@ ul.menu_fonctionnement, ul.menu_restaurant, div.card, div.card_txt {
     width: 100%;
   }
 
+  /*+++++++++++++++++++++++++++++++++++ HEADER */
+  header a {
+    width: fit-content;
+    position: absolute;
+    left: 10px;
+    align-self: center;
+  }
+
   /*+++++++++++++++++++++++++++++++++++ HOME */
   section#decouverte div.map span.map_title {
     height: 40px;
@@ -165,6 +173,7 @@ ul.menu_fonctionnement, ul.menu_restaurant, div.card, div.card_txt {
     text-align: center;
     padding: 30px;
   }
+  /*+++++++++++++++++++++++ FONCTIONNEMENT (Choisissez, Composez, Degustez) */
   section#fonctionnement {
     height: 500px;
     padding-top: 50px;
@@ -207,6 +216,7 @@ ul.menu_fonctionnement, ul.menu_restaurant, div.card, div.card_txt {
     color: #9356DC;
   }
 
+  /*+++++++++++++++++++++++++++++++++ restaurant cards section */
   section#restaurant {
     justify-content: space-around;
     height: 1350px;
@@ -236,7 +246,7 @@ ul.menu_fonctionnement, ul.menu_restaurant, div.card, div.card_txt {
     justify-content: space-between;
   }
 
-  /*+++++++++++++++++++++++++++++++++++ MENUS */
+  /*+++++++++++++++++++++++++++++++++++ PAGES des MENUS */
   section#restaurant_picture picture {
     position: relative;
   }
@@ -257,13 +267,42 @@ ul.menu_fonctionnement, ul.menu_restaurant, div.card, div.card_txt {
 
   section#menus {
     background-color: #f6f6f6;
+    /*+++++++++++++++++++++++ definition du bouton label */
+    /*+++++++++++++++++++++++++++++++++++ fonctionnement du input */
+  }
+  section#menus form {
+    width: 100%;
+  }
+  section#menus form h2 {
+    position: relative;
+    width: fit-content;
+    margin-left: 5%;
+    font-size: small;
+  }
+  section#menus form h2:after {
+    position: absolute;
+    content: "";
+    border-bottom: 2px solid #99E2D0;
+    width: 28px;
+    left: 0;
+    bottom: -5px;
   }
   section#menus form > div {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-around;
-    height: 400px;
+  }
+  section#menus form div.plats, section#menus form div.entrees, section#menus form div.desserts {
+    height: 300px;
+  }
+  section#menus form div.submit {
+    height: 100px;
+  }
+  section#menus form div.submit input[type=submit] {
+    width: 50%;
+    font-weight: bold;
+    font-size: 105%;
   }
   section#menus .choice_btn {
     display: flex;
@@ -277,7 +316,24 @@ ul.menu_fonctionnement, ul.menu_restaurant, div.card, div.card_txt {
   }
   section#menus .choice_btn div.btn_txt {
     padding: 15px;
-    width: 85%;
+    width: 100%;
+    transition: width 0.5s ease-in;
+  }
+  section#menus .choice_btn div.btn_txt span {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    white-space: nowrap;
+  }
+  section#menus .choice_btn div.btn_txt p, section#menus .choice_btn div.btn_txt h3 {
+    white-space: nowrap;
+    overflow: hidden;
+  }
+  section#menus .choice_btn div.btn_txt h3 {
+    font-size: 95%;
+  }
+  section#menus .choice_btn div.btn_txt p {
+    font-size: 85%;
   }
   section#menus .choice_btn div.checkbox {
     position: relative;
@@ -285,9 +341,10 @@ ul.menu_fonctionnement, ul.menu_restaurant, div.card, div.card_txt {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 15%;
+    width: 0%;
     background-color: #99E2D0;
-    transition: left 0.3s ease-in;
+    transition: left 0.3s ease-in, width 0.5s ease-in;
+    /*++++++++++++++++++++++++ desing et comportement virgule de validation */
   }
   section#menus .choice_btn div.checkbox span.checkmark {
     border-radius: 20px;
@@ -313,6 +370,12 @@ ul.menu_fonctionnement, ul.menu_restaurant, div.card, div.card_txt {
   section#menus input[type=checkbox] {
     display: none;
   }
+  section#menus input[type=checkbox]:checked + label .btn_txt {
+    width: 85%;
+  }
+  section#menus input[type=checkbox]:checked + label .btn_txt p, section#menus input[type=checkbox]:checked + label .btn_txt h3 {
+    text-overflow: ellipsis;
+  }
   section#menus input[type=checkbox]:checked + label span.checkmark {
     transform: rotate(0deg);
   }
@@ -321,7 +384,9 @@ ul.menu_fonctionnement, ul.menu_restaurant, div.card, div.card_txt {
   }
   section#menus input[type=checkbox]:checked + label div.checkbox {
     left: 0px;
+    width: 15%;
   }
+
   /*+++++++++++++++++++++++++++++++++++ FOOTER */
   footer {
     flex-direction: column;
