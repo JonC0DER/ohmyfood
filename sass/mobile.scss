@@ -1,8 +1,8 @@
-@media screen and (min-width:320px) and (max-width:425px){
+@media screen and (min-width:200px) and (max-width:600px){
     @import 'default.scss';
     :root{
-        min-width:320px;
-        max-width: 425px;
+        min-width:200px;
+        max-width: 600px;
         width:100%;
     }
     /*+++++++++++++++++++++++++++++++++++ HEADER */
@@ -18,7 +18,7 @@
         div.map{
             @extend %column;
         
-            span.map_title{
+            .map_title{
                 @extend %jstfy_c_center;
                 height:40px;
                 padding:15px 0 15px 0;
@@ -113,22 +113,11 @@
                 width: 100%;
             }
         }
-        div.card{
-            @extend %column;
-            @extend %card;
-            picture{
-                height:70%;
-            }
-            div.card_txt{
-                padding: 15px;
-                height:30%;
-                justify-content: space-between;
-            }
-        }
+        
     }
     /*+++++++++++++++++++++++++++++++++++ PAGES des MENUS */
     section#restaurant_picture{
-        picture{
+        figure{
             position:relative;
             
             figcaption{
@@ -148,6 +137,18 @@
             }
         }
     }
+    /*+++++++++++++++++++++++++++++++++++ Animation des plats : Pages des MENUS */
+    @keyframes slideInLeft {
+        0% {
+            transform: translateX(-100%);
+            opacity: 0;
+        }
+        100% {
+            transform: translateX(0);
+            opacity: 1;
+        }
+    }
+    /*++++++++++++++++++++++++++++++++ Design section des MENUS */
     section#menus{
         background-color: #f6f6f6;
         form{
@@ -177,6 +178,12 @@
             div.plats, div.entrees, div.desserts {
                 height: 300px;
             }
+            div.entrees, h2:nth-child(1){
+                animation:slideInLeft 1.0s ease-in 0s ;} 
+            div.plats, h2:nth-child(3){ 
+                animation:slideInLeft 1.5s ease-in 0s ;} 
+            div.desserts, h2:nth-child(5) {
+                animation:slideInLeft 2.0s ease-in 0s ;}
             div.submit{
                 height:100px;
 
@@ -200,28 +207,29 @@
             width: 90%;
             box-shadow: 0px 0px 5px gray;
 
-            div.btn_txt{
+            .btn_txt{
                 padding: 15px;
                 width:100%;
                 transition: width .5s ease-in;
-                span{
+                > span:nth-child(2){
                     display: flex;
                     justify-content: space-between;
                     align-items: baseline;
                     white-space: nowrap;
                 }
-                p,h3{
+                .p,.h3{
                     white-space: nowrap;
                     overflow: hidden;
                 }
-                h3{
-                    font-size: 95%;
+                .h3{
+                    font-size: 105%;
+                    font-weight: bold;
                 }
-                p{
+                .p{
                     font-size: 85%;
                 }
             } 
-            div.checkbox{
+            .checkbox{
                 position: relative;
                 left:60px;
                 display: flex;
@@ -231,7 +239,7 @@
                 background-color: $ctertiaire;
                 transition: left .3s ease-in, width .5s ease-in;
                 
-                /*++++++++++++++++++++++++ desing et comportement virgule de validation */
+                /*++++++++++++++++++++++++ desing et comportement de la virgule de validation */
                 span.checkmark{
                     border-radius: 20px;
                     width:25px;
@@ -263,7 +271,7 @@
             &:checked + label{
                 .btn_txt{
                     width:85%;
-                    p,h3{
+                    .p,.h3{
                         text-overflow: ellipsis;
                     }
                 }
@@ -273,7 +281,7 @@
                 span.checkmark:after{
                     opacity: 1;
                 }
-                div.checkbox{
+                .checkbox{
                     left:0px;
                     width:15%;
                 }
@@ -281,6 +289,7 @@
             
         }
     }
+
     /*+++++++++++++++++++++++++++++++++++ FOOTER */
     footer{
         flex-direction: column;

@@ -1,12 +1,12 @@
-@media screen and (min-width: 320px) and (max-width: 425px) {
+@media screen and (min-width: 200px) and (max-width: 600px) {
   @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap");
   @import url("https://fonts.googleapis.com/css2?family=Shrikhand&display=swap");
-  title, .logo {
-    font-family: "Shrikhand", cursive;
+  h1, h2, h3, .h3, h4, h5, h6, p, .p {
+    font-family: "Roboto", sans-serif;
   }
 
-  h1, h2, h3, h4, h5, h6, p {
-    font-family: "Roboto", sans-serif;
+  title, .logo {
+    font-family: "Shrikhand", cursive;
   }
 
   * {
@@ -15,11 +15,11 @@
     margin: 0;
   }
 
-  section#decouverte div.map span.map_title {
+  section#decouverte div.map .map_title {
     justify-content: center;
   }
 
-  section#restaurant div.card, section#restaurant ul.menu_restaurant, section#fonctionnement ul.menu_fonctionnement, section#fonctionnement, section#decouverte div.reservation, section#decouverte div.map, section#decouverte {
+  section#restaurant ul.menu_restaurant, section#fonctionnement ul.menu_fonctionnement, section#fonctionnement, section#decouverte div.reservation, section#decouverte div.map, section#decouverte, div.card {
     flex-direction: column;
   }
 
@@ -29,7 +29,7 @@
   }
 
   section#menus form div.submit input[type=submit], section#decouverte div.reservation button {
-    background: linear-gradient(355deg, #020024 0%, #9356dc 0%, #ff79da 100%);
+    background-image: linear-gradient(355deg, #020024 0%, #9356dc 50%, #ff79da 100%);
   }
 
   section#menus form div.submit input[type=submit], section#decouverte div.reservation button {
@@ -53,7 +53,7 @@
     border-radius: 100%/100%;
   }
 
-  section#restaurant div.card {
+  div.card {
     width: 100%;
     height: 270px;
     border-radius: 15px;
@@ -75,7 +75,7 @@
     height: 100%;
   }
 
-  div.card > picture > img {
+  div.card picture > img {
     object-fit: cover;
   }
 
@@ -84,7 +84,7 @@
   }
 
   header, section, footer,
-div.map, span.map_title, div.reservation,
+div.map, div.map_title, div.reservation,
 ul.menu_fonctionnement, ul.menu_restaurant, div.card, div.card_txt {
     display: flex;
   }
@@ -99,6 +99,20 @@ ul.menu_fonctionnement, ul.menu_restaurant, div.card, div.card_txt {
     width: 50%;
   }
 
+  /*++++++++++++++++++++++++++++++++ cards design basis */
+  div.card a {
+    height: 70%;
+  }
+  div.card a picture {
+    height: 100%;
+  }
+  div.card div.card_txt {
+    padding: 15px;
+    height: 30%;
+    justify-content: space-between;
+  }
+
+  /*++++++++++++++++++++++++++ design et animation icone HEART */
   div.icon_container {
     overflow: hidden;
     position: relative;
@@ -139,9 +153,22 @@ ul.menu_fonctionnement, ul.menu_restaurant, div.card, div.card_txt {
     height: 1%;
   }
 
+  /*+++++++++++++++++++++++++++++++ Button gradient animpation */
+  div.submit > input[type=submit],
+div.reservation > button {
+    transition: 0.5s;
+    background-size: 600px 600px;
+  }
+  div.submit > input[type=submit]:hover,
+div.reservation > button:hover {
+    cursor: pointer;
+    background-position: left center;
+    box-shadow: 0px 8px 15px gray;
+  }
+
   :root {
-    min-width: 320px;
-    max-width: 425px;
+    min-width: 200px;
+    max-width: 600px;
     width: 100%;
   }
 
@@ -154,12 +181,12 @@ ul.menu_fonctionnement, ul.menu_restaurant, div.card, div.card_txt {
   }
 
   /*+++++++++++++++++++++++++++++++++++ HOME */
-  section#decouverte div.map span.map_title {
+  section#decouverte div.map .map_title {
     height: 40px;
     padding: 15px 0 15px 0;
     background-color: #eaeaea;
   }
-  section#decouverte div.map span.map_title i {
+  section#decouverte div.map .map_title i {
     margin-right: 15px;
   }
   section#decouverte div.map p.openstreetmap {
@@ -237,20 +264,12 @@ ul.menu_fonctionnement, ul.menu_restaurant, div.card, div.card_txt {
   section#restaurant ul.menu_restaurant li {
     width: 100%;
   }
-  section#restaurant div.card picture {
-    height: 70%;
-  }
-  section#restaurant div.card div.card_txt {
-    padding: 15px;
-    height: 30%;
-    justify-content: space-between;
-  }
 
   /*+++++++++++++++++++++++++++++++++++ PAGES des MENUS */
-  section#restaurant_picture picture {
+  section#restaurant_picture figure {
     position: relative;
   }
-  section#restaurant_picture picture figcaption {
+  section#restaurant_picture figure figcaption {
     display: flex;
     justify-content: center;
     align-items: baseline;
@@ -261,10 +280,22 @@ ul.menu_fonctionnement, ul.menu_restaurant, div.card, div.card_txt {
     border-radius: 25px 25px 0px 0px;
     background-color: #f6f6f6;
   }
-  section#restaurant_picture picture figcaption h1 {
+  section#restaurant_picture figure figcaption h1 {
     margin-right: 20px;
   }
 
+  /*+++++++++++++++++++++++++++++++++++ Animation des plats : Pages des MENUS */
+  @keyframes slideInLeft {
+    0% {
+      transform: translateX(-100%);
+      opacity: 0;
+    }
+    100% {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+  /*++++++++++++++++++++++++++++++++ Design section des MENUS */
   section#menus {
     background-color: #f6f6f6;
     /*+++++++++++++++++++++++ definition du bouton label */
@@ -296,6 +327,15 @@ ul.menu_fonctionnement, ul.menu_restaurant, div.card, div.card_txt {
   section#menus form div.plats, section#menus form div.entrees, section#menus form div.desserts {
     height: 300px;
   }
+  section#menus form div.entrees, section#menus form h2:nth-child(1) {
+    animation: slideInLeft 1s ease-in 0s;
+  }
+  section#menus form div.plats, section#menus form h2:nth-child(3) {
+    animation: slideInLeft 1.5s ease-in 0s;
+  }
+  section#menus form div.desserts, section#menus form h2:nth-child(5) {
+    animation: slideInLeft 2s ease-in 0s;
+  }
   section#menus form div.submit {
     height: 100px;
   }
@@ -314,28 +354,29 @@ ul.menu_fonctionnement, ul.menu_restaurant, div.card, div.card_txt {
     width: 90%;
     box-shadow: 0px 0px 5px gray;
   }
-  section#menus .choice_btn div.btn_txt {
+  section#menus .choice_btn .btn_txt {
     padding: 15px;
     width: 100%;
     transition: width 0.5s ease-in;
   }
-  section#menus .choice_btn div.btn_txt span {
+  section#menus .choice_btn .btn_txt > span:nth-child(2) {
     display: flex;
     justify-content: space-between;
     align-items: baseline;
     white-space: nowrap;
   }
-  section#menus .choice_btn div.btn_txt p, section#menus .choice_btn div.btn_txt h3 {
+  section#menus .choice_btn .btn_txt .p, section#menus .choice_btn .btn_txt .h3 {
     white-space: nowrap;
     overflow: hidden;
   }
-  section#menus .choice_btn div.btn_txt h3 {
-    font-size: 95%;
+  section#menus .choice_btn .btn_txt .h3 {
+    font-size: 105%;
+    font-weight: bold;
   }
-  section#menus .choice_btn div.btn_txt p {
+  section#menus .choice_btn .btn_txt .p {
     font-size: 85%;
   }
-  section#menus .choice_btn div.checkbox {
+  section#menus .choice_btn .checkbox {
     position: relative;
     left: 60px;
     display: flex;
@@ -344,9 +385,9 @@ ul.menu_fonctionnement, ul.menu_restaurant, div.card, div.card_txt {
     width: 0%;
     background-color: #99E2D0;
     transition: left 0.3s ease-in, width 0.5s ease-in;
-    /*++++++++++++++++++++++++ desing et comportement virgule de validation */
+    /*++++++++++++++++++++++++ desing et comportement de la virgule de validation */
   }
-  section#menus .choice_btn div.checkbox span.checkmark {
+  section#menus .choice_btn .checkbox span.checkmark {
     border-radius: 20px;
     width: 25px;
     height: 25px;
@@ -354,7 +395,7 @@ ul.menu_fonctionnement, ul.menu_restaurant, div.card, div.card_txt {
     background-color: white;
     transition: transform 0.8s ease-out;
   }
-  section#menus .choice_btn div.checkbox span.checkmark::after {
+  section#menus .choice_btn .checkbox span.checkmark::after {
     content: "";
     position: absolute;
     margin-left: 25.7%;
@@ -373,7 +414,7 @@ ul.menu_fonctionnement, ul.menu_restaurant, div.card, div.card_txt {
   section#menus input[type=checkbox]:checked + label .btn_txt {
     width: 85%;
   }
-  section#menus input[type=checkbox]:checked + label .btn_txt p, section#menus input[type=checkbox]:checked + label .btn_txt h3 {
+  section#menus input[type=checkbox]:checked + label .btn_txt .p, section#menus input[type=checkbox]:checked + label .btn_txt .h3 {
     text-overflow: ellipsis;
   }
   section#menus input[type=checkbox]:checked + label span.checkmark {
@@ -382,7 +423,7 @@ ul.menu_fonctionnement, ul.menu_restaurant, div.card, div.card_txt {
   section#menus input[type=checkbox]:checked + label span.checkmark:after {
     opacity: 1;
   }
-  section#menus input[type=checkbox]:checked + label div.checkbox {
+  section#menus input[type=checkbox]:checked + label .checkbox {
     left: 0px;
     width: 15%;
   }
