@@ -19,7 +19,7 @@
     justify-content: center;
   }
 
-  section#restaurant ul.menu_restaurant, section#fonctionnement ul.menu_fonctionnement, section#fonctionnement, section#decouverte div.reservation, section#decouverte div.map, section#decouverte, div.card {
+  section#restaurant ul.menu_restaurant, section#fonctionnement ul.menu_fonctionnement, section#fonctionnement, section#decouverte, section#decouverte div.reservation, section#decouverte div.map, div.card {
     flex-direction: column;
   }
 
@@ -75,7 +75,8 @@
     height: 100%;
   }
 
-  div.card picture > img {
+  div.card picture > img,
+picture > img {
     object-fit: cover;
   }
 
@@ -89,11 +90,18 @@ ul.menu_fonctionnement, ul.menu_restaurant, div.card, div.card_txt {
     display: flex;
   }
 
+  /*+++++++++++++++++++++++++++++++++++ HEADER */
   header {
     position: sticky;
     height: 50px;
     justify-content: center;
     box-shadow: 0px 1px 5px #9e9e9e;
+  }
+  header a {
+    width: fit-content;
+    position: absolute;
+    left: 10px;
+    align-self: center;
   }
   header p {
     width: 50%;
@@ -166,21 +174,7 @@ div.reservation > button:hover {
     box-shadow: 0px 8px 15px gray;
   }
 
-  :root {
-    min-width: 200px;
-    max-width: 600px;
-    width: 100%;
-  }
-
-  /*+++++++++++++++++++++++++++++++++++ HEADER */
-  header a {
-    width: fit-content;
-    position: absolute;
-    left: 10px;
-    align-self: center;
-  }
-
-  /*+++++++++++++++++++++++++++++++++++ HOME */
+  /*+++++++++++++++++++++++++++++++++++ HOME section DECOUVERTE*/
   section#decouverte div.map .map_title {
     height: 40px;
     padding: 15px 0 15px 0;
@@ -188,9 +182,6 @@ div.reservation > button:hover {
   }
   section#decouverte div.map .map_title i {
     margin-right: 15px;
-  }
-  section#decouverte div.map p.openstreetmap {
-    display: none;
   }
   section#decouverte div.reservation {
     background-color: #f6f6f6;
@@ -200,6 +191,37 @@ div.reservation > button:hover {
     text-align: center;
     padding: 30px;
   }
+  /*+++++++++++++++++++++++++++++++++++ PAGES des MENUS */
+  section#restaurant_picture figure {
+    position: relative;
+    width: 100%;
+  }
+  section#restaurant_picture figure figcaption {
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
+    position: absolute;
+    bottom: 0;
+    padding-top: 15px;
+    width: 100%;
+    border-radius: 25px 25px 0px 0px;
+    background-color: #f6f6f6;
+  }
+  section#restaurant_picture figure figcaption h1 {
+    margin-right: 20px;
+  }
+
+  :root {
+    min-width: 200px;
+    max-width: 600px;
+    width: 100%;
+  }
+
+  /*+++++++++++++++++++++++++++++++++++ HOME */
+  section#decouverte p.openstreetmap {
+    display: none;
+  }
+
   /*+++++++++++++++++++++++ FONCTIONNEMENT (Choisissez, Composez, Degustez) */
   section#fonctionnement {
     height: 500px;
@@ -265,25 +287,6 @@ div.reservation > button:hover {
     width: 100%;
   }
 
-  /*+++++++++++++++++++++++++++++++++++ PAGES des MENUS */
-  section#restaurant_picture figure {
-    position: relative;
-  }
-  section#restaurant_picture figure figcaption {
-    display: flex;
-    justify-content: center;
-    align-items: baseline;
-    position: absolute;
-    bottom: 0;
-    padding-top: 15px;
-    width: 100%;
-    border-radius: 25px 25px 0px 0px;
-    background-color: #f6f6f6;
-  }
-  section#restaurant_picture figure figcaption h1 {
-    margin-right: 20px;
-  }
-
   /*+++++++++++++++++++++++++++++++++++ Animation des plats : Pages des MENUS */
   @keyframes slideInLeft {
     0% {
@@ -297,6 +300,7 @@ div.reservation > button:hover {
   }
   /*++++++++++++++++++++++++++++++++ Design section des MENUS */
   section#menus {
+    height: 100vh;
     background-color: #f6f6f6;
     /*+++++++++++++++++++++++ definition du bouton label */
     /*+++++++++++++++++++++++++++++++++++ fonctionnement du input */
@@ -309,6 +313,7 @@ div.reservation > button:hover {
     width: fit-content;
     margin-left: 5%;
     font-size: small;
+    align-self: flex-start;
   }
   section#menus form h2:after {
     position: absolute;
@@ -325,15 +330,15 @@ div.reservation > button:hover {
     justify-content: space-around;
   }
   section#menus form div.plats, section#menus form div.entrees, section#menus form div.desserts {
-    height: 300px;
+    height: 30vh;
   }
-  section#menus form div.entrees, section#menus form h2:nth-child(1) {
+  section#menus form div.entrees, section#menus form .entrees > h2 {
     animation: slideInLeft 1s ease-in 0s;
   }
-  section#menus form div.plats, section#menus form h2:nth-child(3) {
+  section#menus form div.plats, section#menus form .plats > h2 {
     animation: slideInLeft 1.5s ease-in 0s;
   }
-  section#menus form div.desserts, section#menus form h2:nth-child(5) {
+  section#menus form div.desserts, section#menus form .desserts > h2 {
     animation: slideInLeft 2s ease-in 0s;
   }
   section#menus form div.submit {

@@ -5,45 +5,14 @@
         max-width: 600px;
         width:100%;
     }
-    /*+++++++++++++++++++++++++++++++++++ HEADER */
-    header a{
-        width:fit-content;
-        position: absolute;
-        left:10px;
-        align-self: center;
-    }
+    
     /*+++++++++++++++++++++++++++++++++++ HOME */
     section#decouverte{
         @extend %column;
-        div.map{
-            @extend %column;
         
-            .map_title{
-                @extend %jstfy_c_center;
-                height:40px;
-                padding:15px 0 15px 0;
-                background-color: #eaeaea;
-                i{
-                    margin-right: 15px; 
-                }
-            }
-            p.openstreetmap{
-                display: none;
-            }
+        p.openstreetmap{
+            display: none;
         }
-        div.reservation{
-            background-color: #f6f6f6;
-            @extend %column;
-            height: 250px;
-            justify-content: space-between;
-            align-items: center;
-            text-align: center;
-            padding: 30px;
-            button{
-                @extend %btn;
-                @extend %bg_grad;
-            }
-        }   
     }
     /*+++++++++++++++++++++++ FONCTIONNEMENT (Choisissez, Composez, Degustez) */   
     section#fonctionnement{
@@ -115,28 +84,7 @@
         }
         
     }
-    /*+++++++++++++++++++++++++++++++++++ PAGES des MENUS */
-    section#restaurant_picture{
-        figure{
-            position:relative;
-            
-            figcaption{
-                display: flex;
-                justify-content: center;
-                align-items: baseline;
-                position:absolute;
-                bottom: 0;
-                padding-top: 15px;
-                width:100%;
-                border-radius: 25px 25px 0px 0px;
-                background-color: #f6f6f6;
 
-                h1{
-                    margin-right: 20px;
-                }
-            }
-        }
-    }
     /*+++++++++++++++++++++++++++++++++++ Animation des plats : Pages des MENUS */
     @keyframes slideInLeft {
         0% {
@@ -150,6 +98,7 @@
     }
     /*++++++++++++++++++++++++++++++++ Design section des MENUS */
     section#menus{
+        height: 100vh;
         background-color: #f6f6f6;
         form{
             width:100%;
@@ -158,6 +107,7 @@
                 width: fit-content;
                 margin-left:5%;
                 font-size:small;
+                align-self: flex-start;
             
                 &:after{
                     position: absolute;
@@ -176,13 +126,13 @@
                 justify-content: space-around;
             }
             div.plats, div.entrees, div.desserts {
-                height: 300px;
+                height: 30vh;
             }
-            div.entrees, h2:nth-child(1){
+            div.entrees, .entrees > h2{
                 animation:slideInLeft 1.0s ease-in 0s ;} 
-            div.plats, h2:nth-child(3){ 
+            div.plats, .plats > h2{ 
                 animation:slideInLeft 1.5s ease-in 0s ;} 
-            div.desserts, h2:nth-child(5) {
+            div.desserts, .desserts > h2 {
                 animation:slideInLeft 2.0s ease-in 0s ;}
             div.submit{
                 height:100px;
