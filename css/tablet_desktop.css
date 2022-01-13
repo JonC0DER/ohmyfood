@@ -1,0 +1,21 @@
+@media screen and (min-width: 601px) {
+  section#decouverte {
+    padding-bottom: 4px;
+    background-color: #eaeaea;
+    box-shadow: 0px 3px 3px #9e9e9e;
+  }
+  section#decouverte div.map {
+    height: 250px;
+  }
+  section#decouverte > div {
+    flex: 50%;
+  }
+  section#decouverte p.openstreetmap {
+    height: 210px;
+  }
+  section#decouverte p.openstreetmap img {
+    object-fit: cover;
+  }
+}
+
+/*# sourceMappingURL=tablet_desktop.css.map */
