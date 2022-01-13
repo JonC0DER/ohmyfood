@@ -1,12 +1,12 @@
 @media screen and (min-width: 992px) {
   @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap");
   @import url("https://fonts.googleapis.com/css2?family=Shrikhand&display=swap");
-  title, .logo {
-    font-family: "Shrikhand", cursive;
+  h1, h2, h3, .h3, h4, h5, h6, p, .p {
+    font-family: "Roboto", sans-serif;
   }
 
-  h1, h2, h3, h4, h5, h6, p {
-    font-family: "Roboto", sans-serif;
+  title, .logo {
+    font-family: "Shrikhand", cursive;
   }
 
   * {
@@ -15,19 +15,19 @@
     margin: 0;
   }
 
-  section#decouverte div.map span.map_title {
+  section#decouverte div.map .map_title {
     justify-content: center;
   }
 
-  footer, section#restaurant div.card, section#restaurant, section#fonctionnement, section#decouverte div.reservation, section#decouverte div.map {
+  footer, section#restaurant, section#fonctionnement, section#decouverte div.reservation, section#decouverte div.map, div.card {
     flex-direction: column;
   }
 
-  section#decouverte div.reservation button {
-    background: linear-gradient(355deg, #020024 0%, #9356dc 0%, #ff79da 100%);
+  section#menus form div.submit input[type=submit], section#decouverte div.reservation button {
+    background-image: linear-gradient(355deg, #020024 0%, #9356dc 50%, #ff79da 100%);
   }
 
-  section#decouverte div.reservation button {
+  section#menus form div.submit input[type=submit], section#decouverte div.reservation button {
     width: fit-content;
     padding: 20px;
     border-radius: 50px/50px;
@@ -48,7 +48,7 @@
     border-radius: 100%/100%;
   }
 
-  section#restaurant div.card {
+  div.card {
     width: 100%;
     height: 270px;
     border-radius: 15px;
@@ -70,7 +70,8 @@
     height: 100%;
   }
 
-  div.card > picture > img {
+  div.card picture > img,
+picture > img {
     object-fit: cover;
   }
 
@@ -79,21 +80,42 @@
   }
 
   header, section, footer,
-div.map, span.map_title, div.reservation,
+div.map, div.map_title, div.reservation,
 ul.menu_fonctionnement, ul.menu_restaurant, div.card, div.card_txt {
     display: flex;
   }
 
+  /*+++++++++++++++++++++++++++++++++++ HEADER */
   header {
     position: sticky;
     height: 50px;
     justify-content: center;
     box-shadow: 0px 1px 5px #9e9e9e;
   }
+  header a {
+    width: fit-content;
+    position: absolute;
+    left: 10px;
+    align-self: center;
+  }
   header p {
     width: 50%;
   }
 
+  /*++++++++++++++++++++++++++++++++ cards design basis */
+  div.card a {
+    height: 70%;
+  }
+  div.card a picture {
+    height: 100%;
+  }
+  div.card div.card_txt {
+    padding: 15px;
+    height: 30%;
+    justify-content: space-between;
+  }
+
+  /*++++++++++++++++++++++++++ design et animation icone HEART */
   div.icon_container {
     overflow: hidden;
     position: relative;
@@ -134,42 +156,27 @@ ul.menu_fonctionnement, ul.menu_restaurant, div.card, div.card_txt {
     height: 1%;
   }
 
-  :root {
-    max-width: 1600px;
-    width: 100% auto;
+  /*+++++++++++++++++++++++++++++++ Button gradient animpation */
+  div.submit > input[type=submit],
+div.reservation > button {
+    transition: 0.5s;
+    background-size: 600px 600px;
+  }
+  div.submit > input[type=submit]:hover,
+div.reservation > button:hover {
+    cursor: pointer;
+    background-position: left center;
+    box-shadow: 0px 8px 15px gray;
   }
 
-  header {
-    align-items: center;
-  }
-  header > p {
-    height: 35px;
-  }
-
-  section#decouverte {
-    padding-bottom: 4px;
-    background-color: #eaeaea;
-    box-shadow: 0px 3px 3px #9e9e9e;
-  }
-  section#decouverte > div {
-    flex: 50%;
-  }
-  section#decouverte div.map {
-    height: 250px;
-  }
-  section#decouverte div.map span.map_title {
+  /*+++++++++++++++++++++++++++++++++++ HOME section DECOUVERTE*/
+  section#decouverte div.map .map_title {
     height: 40px;
     padding: 15px 0 15px 0;
     background-color: #eaeaea;
   }
-  section#decouverte div.map span.map_title i {
+  section#decouverte div.map .map_title i {
     margin-right: 15px;
-  }
-  section#decouverte div.map p.openstreetmap {
-    height: 210px;
-  }
-  section#decouverte div.map p.openstreetmap img {
-    object-fit: cover;
   }
   section#decouverte div.reservation {
     background-color: #f6f6f6;
@@ -179,6 +186,39 @@ ul.menu_fonctionnement, ul.menu_restaurant, div.card, div.card_txt {
     text-align: center;
     padding: 30px;
   }
+  /*+++++++++++++++++++++++++++++++++++ PAGES des MENUS */
+  section#restaurant_picture figure {
+    position: relative;
+    width: 100%;
+  }
+  section#restaurant_picture figure figcaption {
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
+    position: absolute;
+    bottom: 0;
+    padding-top: 15px;
+    width: 100%;
+    border-radius: 25px 25px 0px 0px;
+    background-color: #f6f6f6;
+  }
+  section#restaurant_picture figure figcaption h1 {
+    margin-right: 20px;
+  }
+
+  :root {
+    max-width: 1600px;
+    width: 100% auto;
+    margin: auto;
+  }
+
+  header {
+    align-items: center;
+  }
+  header > p {
+    height: 35px;
+  }
+
   section#fonctionnement {
     height: 300px;
     padding-top: 50px;
@@ -243,18 +283,161 @@ ul.menu_fonctionnement, ul.menu_restaurant, div.card, div.card_txt {
   section#restaurant ul.menu_restaurant li {
     width: 20%;
   }
-  section#restaurant div.card {
-    width: 100%;
-  }
-  section#restaurant div.card picture {
-    height: 70%;
-  }
-  section#restaurant div.card div.card_txt {
-    padding: 15px;
-    height: 30%;
-    justify-content: space-between;
+
+  /*+++++++++++++++++++++++++++++++++++ PAGES des MENUS */
+  section#restaurant_picture figure {
+    height: 400px;
   }
 
+  /*++++++++++++++++++++++++++++++++ Design section des MENUS */
+  section#menus {
+    background-color: #f6f6f6;
+    /*+++++++++++++++++++++++ definition du bouton label */
+    /*+++++++++++++++++++++++++++++++++++ fonctionnement du input */
+  }
+  section#menus form {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    /* add for desktop version*/
+    width: 100%;
+  }
+  section#menus form h2 {
+    position: relative;
+    width: fit-content;
+    margin-left: 5%;
+    font-size: small;
+  }
+  section#menus form h2:after {
+    position: absolute;
+    content: "";
+    border-bottom: 2px solid #99E2D0;
+    width: 100%;
+    /* change for tablet */
+    left: 0;
+    bottom: -5px;
+  }
+  section#menus form > div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  section#menus form > div h2, section#menus form > div .choice_btn {
+    margin-bottom: 10px;
+    margin-top: 10px;
+  }
+  section#menus form > div .choice_btn {
+    height: 70px;
+  }
+  section#menus form div.plats, section#menus form div.entrees, section#menus form div.desserts {
+    height: fit-content;
+    width: 30%;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+  section#menus form div.entrees, section#menus form h2:nth-child(1) {
+    animation: slideInLeft 1s ease-in 0s;
+  }
+  section#menus form div.plats, section#menus form h2:nth-child(3) {
+    animation: slideInLeft 1.5s ease-in 0s;
+  }
+  section#menus form div.desserts, section#menus form h2:nth-child(5) {
+    animation: slideInLeft 2s ease-in 0s;
+  }
+  section#menus form div.submit {
+    height: 100px;
+    width: inherit;
+  }
+  section#menus form div.submit input[type=submit] {
+    width: 25%;
+    font-weight: bold;
+    font-size: 105%;
+  }
+  section#menus .choice_btn {
+    display: flex;
+    justify-content: space-between;
+    background-color: white;
+    border-radius: 15px;
+    cursor: pointer;
+    overflow: hidden;
+    width: 90%;
+    box-shadow: 0px 0px 5px gray;
+  }
+  section#menus .choice_btn .btn_txt {
+    padding: 15px;
+    width: 100%;
+    transition: width 0.5s ease-in;
+  }
+  section#menus .choice_btn .btn_txt > span:nth-child(2) {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    white-space: nowrap;
+  }
+  section#menus .choice_btn .btn_txt .p, section#menus .choice_btn .btn_txt .h3 {
+    white-space: nowrap;
+    overflow: hidden;
+  }
+  section#menus .choice_btn .btn_txt .h3 {
+    font-size: 105%;
+    font-weight: bold;
+  }
+  section#menus .choice_btn .btn_txt .p {
+    font-size: 85%;
+  }
+  section#menus .choice_btn .checkbox {
+    position: relative;
+    left: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 0%;
+    background-color: #99E2D0;
+    transition: left 0.3s ease-in, width 0.5s ease-in;
+    /*++++++++++++++++++++++++ desing et comportement de la virgule de validation */
+  }
+  section#menus .choice_btn .checkbox span.checkmark {
+    border-radius: 20px;
+    width: 25px;
+    height: 25px;
+    transform: rotate(360deg);
+    background-color: white;
+    transition: transform 0.8s ease-out;
+  }
+  section#menus .choice_btn .checkbox span.checkmark::after {
+    content: "";
+    position: absolute;
+    margin-left: 25.7%;
+    margin-top: 5.5%;
+    width: 8px;
+    height: 13px;
+    border: solid #99E2D0;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+    opacity: 0;
+    transition: opacity 2s ease;
+  }
+  section#menus input[type=checkbox] {
+    display: none;
+  }
+  section#menus input[type=checkbox]:checked + label .btn_txt {
+    width: 85%;
+  }
+  section#menus input[type=checkbox]:checked + label .btn_txt .p, section#menus input[type=checkbox]:checked + label .btn_txt .h3 {
+    text-overflow: ellipsis;
+  }
+  section#menus input[type=checkbox]:checked + label span.checkmark {
+    transform: rotate(0deg);
+  }
+  section#menus input[type=checkbox]:checked + label span.checkmark:after {
+    opacity: 1;
+  }
+  section#menus input[type=checkbox]:checked + label .checkbox {
+    left: 0px;
+    width: 15%;
+  }
+
+  /*++++++++++++++++++++++++++++++++++ FOOOTER */
   footer {
     background-color: #353535;
     padding: 20px;

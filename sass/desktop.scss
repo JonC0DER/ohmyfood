@@ -3,53 +3,13 @@
     :root{
         max-width: 1600px;
         width:100% auto;
+        margin: auto;
     }
     header {
         align-items: center;
         > p{
             height:35px;
         }
-    }
-    section#decouverte{
-        padding-bottom: 4px;
-        background-color: #eaeaea;
-        box-shadow: 0px 3px 3px #9e9e9e;
-        
-        > div{ 
-            flex: 50%;
-        }
-        div.map{
-            @extend %column;
-            height:250px;
-            span.map_title{
-                @extend %jstfy_c_center;
-                height:40px;
-                padding:15px 0 15px 0;
-                background-color: #eaeaea;
-                i{
-                    margin-right: 15px; 
-                }
-            }
-            p.openstreetmap{
-                height:210px;
-                img{
-                    object-fit: cover;
-                }
-            }
-        }
-        div.reservation{
-            background-color: #f6f6f6;
-            @extend %column;
-            height: 250px;
-            justify-content: space-between;
-            align-items: center;
-            text-align: center;
-            padding: 30px;
-            button{
-                @extend %btn;
-                @extend %bg_grad;
-            }
-        }   
     }
 
     section#fonctionnement{
@@ -120,22 +80,167 @@
                 width: 20%;
             }
         }
-        div.card{
-            @extend %column;
-            @extend %card;
+    }
+     /*+++++++++++++++++++++++++++++++++++ PAGES des MENUS */
+    section#restaurant_picture{
+        figure{
+            height: 400px;
+        }
+    }   
+    /*++++++++++++++++++++++++++++++++ Design section des MENUS */
+    section#menus{
+        background-color: #f6f6f6;
+        form{
+            display: flex;
+            flex-flow: row wrap;
+            justify-content: space-between; /* add for desktop version*/
             width:100%;
-            picture{
-                height:70%;
+            h2{
+                position: relative;
+                width: fit-content;
+                margin-left:5%;
+                font-size:small;
+            
+                &:after{
+                    position: absolute;
+                    content:"";
+                    border-bottom: 2px solid $ctertiaire;
+                    width:100%; /* change for tablet */
+                    left: 0;
+                    bottom: -5px;
+                    
+                }
             }
-            div.card_txt{
-                padding: 15px;
-                height:30%;
-                justify-content: space-between;
-
-                
+            > div{
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                h2, .choice_btn{
+                    margin-bottom: 10px;
+                    margin-top: 10px;
+                }
+                .choice_btn{
+                    height:70px;
+                }
+            }
+            div.plats, div.entrees, div.desserts {
+                height: fit-content;
+                width:30%;
+                margin-top: 20px;
+                margin-bottom: 20px;
+            }
+            div.entrees, h2:nth-child(1){
+                animation:slideInLeft 1.0s ease-in 0s ;} 
+            div.plats, h2:nth-child(3){ 
+                animation:slideInLeft 1.5s ease-in 0s ;} 
+            div.desserts, h2:nth-child(5) {
+                animation:slideInLeft 2.0s ease-in 0s ;}
+            div.submit{
+                height:100px;
+                width: inherit;
+                input[type="submit"]{
+                    @extend %btn;
+                    @extend %bg_grad;
+                    width: 25%;
+                    font-weight: bold;
+                    font-size: 105%;
+                }
             }
         }
+        /*+++++++++++++++++++++++ definition du bouton label */
+        .choice_btn{
+            display: flex;
+            justify-content: space-between;
+            background-color: white;
+            border-radius: 15px;
+            cursor: pointer;
+            overflow: hidden;
+            width: 90%;
+            box-shadow: 0px 0px 5px gray;
+
+            .btn_txt{
+                padding: 15px;
+                width:100%;
+                transition: width .5s ease-in;
+                > span:nth-child(2){
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: baseline;
+                    white-space: nowrap;
+                }
+                .p,.h3{
+                    white-space: nowrap;
+                    overflow: hidden;
+                }
+                .h3{
+                    font-size: 105%;
+                    font-weight: bold;
+                }
+                .p{
+                    font-size: 85%;
+                }
+            } 
+            .checkbox{
+                position: relative;
+                left:60px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width:0%;
+                background-color: $ctertiaire;
+                transition: left .3s ease-in, width .5s ease-in;
+                
+                /*++++++++++++++++++++++++ desing et comportement de la virgule de validation */
+                span.checkmark{
+                    border-radius: 20px;
+                    width:25px;
+                    height:25px;
+                    transform: rotate(360deg);
+                    background-color:white ;
+                    transition: transform .8s ease-out;
+                }
+                span.checkmark::after{
+                    content: "";
+                    position: absolute;
+                    margin-left: 25.7%;
+                    margin-top: 5.5%;
+                    width: 8px;
+                    height: 13px;
+                    border:solid $ctertiaire;
+                    border-width: 0 2px 2px 0;
+                    transform: rotate(45deg);
+                    opacity: 0;
+                    transition: opacity 2s ease;
+                }
+            }
+        }
+
+        /*+++++++++++++++++++++++++++++++++++ fonctionnement du input */
+        input[type="checkbox"]{
+            display: none;
+
+            &:checked + label{
+                .btn_txt{
+                    width:85%;
+                    .p,.h3{
+                        text-overflow: ellipsis;
+                    }
+                }
+                span.checkmark{
+                    transform: rotate(0deg);
+                }
+                span.checkmark:after{
+                    opacity: 1;
+                }
+                .checkbox{
+                    left:0px;
+                    width:15%;
+                }
+            }
+            
+        }
     }
+    /*++++++++++++++++++++++++++++++++++ FOOOTER */
     footer{
         @extend %column;
         background-color: #353535;
