@@ -74,7 +74,8 @@ img{
     width:100%;
     height:100%;
 }
-div.card  picture > img{
+div.card  picture > img,
+picture > img{
     object-fit: cover;
 }
 header, section, footer{
@@ -85,31 +86,39 @@ div.map, div.map_title, div.reservation,
 ul.menu_fonctionnement,ul.menu_restaurant, div.card, div.card_txt{
     display: flex;
 }
+/*+++++++++++++++++++++++++++++++++++ HEADER */
 header{
     position: sticky;
     height: 50px;
     justify-content: center;
     box-shadow: 0px 1px 5px #9e9e9e;
+    a{
+        width:fit-content;
+        position: absolute;
+        left:10px;
+        align-self: center;
+    }
     p{
         width: 50%;
     }
 }
+
 /*++++++++++++++++++++++++++++++++ cards design basis */
 div.card{
-            @extend %column;
-            @extend %card;
-            a{
-                height: 70%;
-                picture{
-                    height:100%;
-                }
-            }
-            div.card_txt{
-                padding: 15px;
-                height:30%;
-                justify-content: space-between;
-            }
+    @extend %column;
+    @extend %card;
+    a{
+        height: 70%;
+        picture{
+            height:100%;
         }
+    }
+    div.card_txt{
+        padding: 15px;
+        height:30%;
+        justify-content: space-between;
+    }
+}
 /*++++++++++++++++++++++++++ design et animation icone HEART */
 div.icon_container{
     overflow: hidden;
@@ -161,5 +170,58 @@ div.reservation > button{
         cursor: pointer;
         background-position: left center;
         box-shadow: 0px 8px 15px gray;
+    }
+}
+
+/*+++++++++++++++++++++++++++++++++++ HOME section DECOUVERTE*/
+section#decouverte{
+    div.map{
+        @extend %column;
+        .map_title{
+            @extend %jstfy_c_center;
+            height:40px;
+            padding:15px 0 15px 0;
+            background-color: #eaeaea;
+            i{
+                margin-right: 15px; 
+            }
+        }
+    
+    }
+    div.reservation{
+        background-color: #f6f6f6;
+        @extend %column;
+        height: 250px;
+        justify-content: space-between;
+        align-items: center;
+        text-align: center;
+        padding: 30px;
+        button{
+            @extend %btn;
+            @extend %bg_grad;
+        }
+    }   
+}
+/*+++++++++++++++++++++++++++++++++++ PAGES des MENUS */
+section#restaurant_picture{
+    figure{
+        position:relative;
+        width:100%;
+        
+        figcaption{
+            display: flex;
+            justify-content: center;
+            align-items: baseline;
+            position:absolute;
+            bottom: 0;
+            padding-top: 15px;
+            width:100%;
+            border-radius: 25px 25px 0px 0px;
+            background-color: #f6f6f6;
+
+            h1{
+                margin-right: 20px;
+            }
+        }
     }
 }
