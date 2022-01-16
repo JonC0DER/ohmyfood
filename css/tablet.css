@@ -23,8 +23,8 @@
     flex-direction: column;
   }
 
-  section#menus form div.submit input[type=submit], section#decouverte div.reservation button {
-    background-image: linear-gradient(355deg, #020024 0%, #9356dc 50%, #ff79da 100%);
+  section#menus form div.submit input[type=submit], section#decouverte div.reservation button, div.load_spinner i {
+    background-image: linear-gradient(355deg, rgba(147, 86, 220, 0.8) 20%, #ff79da 100%, rgba(252, 174, 229, 0.5) 0%);
   }
 
   section#menus form div.submit input[type=submit], section#decouverte div.reservation button {
@@ -33,18 +33,27 @@
     border-radius: 50px/50px;
     border: none;
     color: white;
-    box-shadow: 0 5px 10px #c4c4c4;
   }
 
-  section#fonctionnement div {
+  ul.menu_fonctionnement div.btn-fc {
+    /*bouttons section fonctionnement -> page accueil */
     background-color: #f6f6f6;
     width: 80%;
     padding: 22px;
     border-radius: 25px;
-    box-shadow: 0px 3px 10px gray;
   }
 
-  section#fonctionnement div span {
+  ul.menu_fonctionnement div.btn-fc, section#decouverte div.reservation button {
+    /* boutons box shadow */
+    box-shadow: 0px 2px 5px rgba(150, 150, 150, 0.4);
+  }
+
+  ul.menu_fonctionnement div.btn-fc:hover, section#decouverte div.reservation button:hover {
+    /* boutons box shadow : hover */
+    box-shadow: 0px 3px 8px rgba(150, 150, 150, 0.5);
+  }
+
+  ul.menu_fonctionnement div.btn-fc span {
     border-radius: 100%/100%;
   }
 
@@ -85,6 +94,52 @@ ul.menu_fonctionnement, ul.menu_restaurant, div.card, div.card_txt {
     display: flex;
   }
 
+  /*+++++++++++++++++++++++++++++++++++ LOAD SPINNER */
+  @keyframes load_spinner {
+    0% {
+      display: block;
+      opacity: 1;
+      width: 100%;
+      height: 100%;
+    }
+    100% {
+      display: block;
+      opacity: 0;
+      width: 100%;
+      height: 100%;
+    }
+  }
+  @keyframes rotate_spinner {
+    0% {
+      transform: rotate(2360deg);
+    }
+    100% {
+      transform: rotate(0deg);
+    }
+  }
+  div.load_spinner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    left: 0;
+    width: 0%;
+    height: 0%;
+    background: white;
+    animation: load_spinner 5s ease-out 0s;
+  }
+  div.load_spinner i {
+    font-size: 600%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    /*animation: 
+        name duration timing-function 
+        delay iteration-count direction fill-mode;*/
+    animation: rotate_spinner 5.5s linear 0s;
+  }
+
   /*+++++++++++++++++++++++++++++++++++ HEADER */
   header {
     position: sticky;
@@ -119,9 +174,6 @@ ul.menu_fonctionnement, ul.menu_restaurant, div.card, div.card_txt {
   div.icon_container {
     overflow: hidden;
     position: relative;
-    /*transform: scale(0.15);
-    width: 125%;
-    height: 220px;*/
     width: 30px;
     height: 30px;
   }
@@ -160,12 +212,13 @@ ul.menu_fonctionnement, ul.menu_restaurant, div.card, div.card_txt {
   div.submit > input[type=submit],
 div.reservation > button {
     transition: 0.5s;
-    background-size: 600px 600px;
+    background-size: 180% 180%;
+    background-position: bottom right;
   }
   div.submit > input[type=submit]:hover,
 div.reservation > button:hover {
     cursor: pointer;
-    background-position: left center;
+    background-position: top left;
     box-shadow: 0px 8px 15px gray;
   }
 
@@ -186,6 +239,27 @@ div.reservation > button:hover {
     text-align: center;
     padding: 30px;
   }
+  section#decouverte div.reservation button {
+    transition: box-shadow 0.5s ease;
+  }
+  /*+++++++++++++++++++++++++++++++++ HOME section Fonctionnement */
+  ul.menu_fonctionnement div.btn-fc {
+    transition: background-color 0.5s ease, box-shadow 0.5s ease;
+  }
+  ul.menu_fonctionnement div.btn-fc:hover {
+    background-color: rgba(147, 86, 220, 0.2);
+  }
+  ul.menu_fonctionnement div.btn-fc:hover i {
+    color: #9356DC;
+  }
+  ul.menu_fonctionnement div.btn-fc span {
+    margin-left: -35px;
+    margin-right: 20px;
+    color: white;
+    padding: 5px 7px 5px 7px;
+    background-color: #9356DC;
+  }
+
   /*+++++++++++++++++++++++++++++++++++ PAGES des MENUS */
   section#restaurant_picture figure {
     position: relative;
@@ -240,23 +314,10 @@ div.reservation > button:hover {
     font-weight: bold;
     font-size: 91%;
   }
-  section#fonctionnement div span {
-    margin-left: -35px;
-    margin-right: 20px;
-    color: white;
-    padding: 7px;
-    background-color: #9356DC;
-  }
   section#fonctionnement div i {
     font-size: 120%;
     margin-right: 20px;
     color: gray;
-  }
-  section#fonctionnement div:hover {
-    background-color: rgba(147, 86, 220, 0.2);
-  }
-  section#fonctionnement div:hover i {
-    color: #9356DC;
   }
 
   section#restaurant {
