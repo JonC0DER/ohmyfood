@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Shrikhand&display=swap');
+
 h1,h2,h3,.h3,h4,h5,h6,p,.p{
     font-family: 'Roboto', sans-serif;
 }
@@ -91,48 +92,7 @@ ul.menu_fonctionnement,ul.menu_restaurant, div.card, div.card_txt{
     display: flex;
 }
 
-/*+++++++++++++++++++++++++++++++++++ LOAD SPINNER */
-@keyframes load_spinner {
-    0%{
-        display: block;
-        opacity: 1;
-        width:100%;
-        height:100%;
-    }
-    100%{
-        display: block;
-        opacity: 0;
-        width:100%;
-        height:100%;
-    }
-}
-@keyframes rotate_spinner {
-    0%{ transform: rotate(2360deg);}
-    100%{ transform: rotate(0deg);}
-}
-div.load_spinner{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: absolute;
-    opacity: 0;
-    top: 0;
-    left: 0;
-    width:0%;
-    height:0%;
-    background: white;
-    animation: load_spinner 5s ease-out 0s;
-    i{
-        font-size: 600%;
-        @extend %bg_grad;
-        -webkit-background-clip:text;
-        -webkit-text-fill-color:transparent;
-        /*animation: 
-            name duration timing-function 
-            delay iteration-count direction fill-mode;*/
-        animation: rotate_spinner 5.5s  linear 0s ;
-    }
-}
+
 /*+++++++++++++++++++++++++++++++++++ HEADER */
 header{
     position: sticky;
@@ -152,12 +112,26 @@ header{
 
 /*++++++++++++++++++++++++++++++++ cards design basis */
 div.card{
+    position: relative;
     @extend %column;
     @extend %card;
     a{
         height: 70%;
         picture{
             height:100%;
+        }
+        picture.nouveau:after{
+            content: "Nouveau";
+            position:absolute;
+            border-radius: 2px;
+            @extend %btn_bx-sh;
+            padding:7px 10px 7px 10px;
+            top:5%;
+            left:68%;
+            height:15px;
+            background-color: $ctertiaire;
+            color:green;
+            font-weight: bold;
         }
     }
     div.card_txt{
@@ -166,58 +140,6 @@ div.card{
         justify-content: space-between;
     }
 }
-/*++++++++++++++++++++++++++ design et animation icone HEART */
-div.icon_container{
-    overflow: hidden;
-    position: relative;
-    width: 30px;
-    height: 30px;
-
-    i:nth-child(1){
-        font-size: 22px;
-        position: absolute;
-        z-index: 1;
-        top:-1px;
-    }
-    i:nth-child(2){
-        font-size: 20px;
-        background: linear-gradient(
-            350deg,black 0%, #9356DC 0%,#FF79DA 100%);
-        -webkit-background-clip:text;
-        -webkit-text-fill-color:transparent;
-        transition:  2s ease;
-    }
-    i:nth-child(2)::after{
-        position: absolute;
-        top:0;
-        left:0;
-        content:'\f004';
-        background:white;
-        -webkit-background-clip:text;
-        -webkit-text-fill-color:transparent;
-        opacity:1;
-        height:90%;
-        transition: opacity 2s ease-in, height .8s ease-in;
-    }
-} 
-div.icon_container:hover i:nth-child(2)::after{
-    opacity: 0;
-    height:1%;
-}
-/*+++++++++++++++++++++++++++++++ Button gradient animpation */
-div.submit > input[type="submit"],
-div.reservation > button{
-    transition:0.5s;
-    background-size: 180% 180%;
-    background-position: bottom right;
-    
-    &:hover{
-        cursor: pointer;
-        background-position:top left;
-        box-shadow: 0px 8px 15px gray;
-    }
-}
-
 /*+++++++++++++++++++++++++++++++++++ HOME section DECOUVERTE*/
 section#decouverte{
     div.map{
@@ -243,10 +165,6 @@ section#decouverte{
         padding: 30px;
         button{
             @extend %btn, %bg_grad, %btn_bx-sh;
-            transition:box-shadow 0.5s ease;
-            &:hover{
-                @extend %btn_bx-sh_hover;
-            }
         }
     }   
 }
@@ -281,8 +199,9 @@ section#restaurant_picture{
             justify-content: center;
             align-items: baseline;
             position:absolute;
-            bottom: 0;
+            bottom: -2px;
             padding-top: 15px;
+            padding-bottom: 15px;
             width:100%;
             border-radius: 25px 25px 0px 0px;
             background-color: #f6f6f6;
@@ -293,3 +212,143 @@ section#restaurant_picture{
         }
     }
 }
+   /*++++++++++++++++++++++++++++++++ Design section des MENUS */
+    section#menus{
+        background-color: #f6f6f6;
+        form{
+            width:100%;
+            h2{
+                position: relative;
+                width: fit-content;
+                margin-left:5%;
+                font-size:small;
+            
+                &:after{
+                    position: absolute;
+                    content:"";
+                    border-bottom: 2px solid $ctertiaire;
+                    left: 0;
+                    bottom: -5px;
+                }
+            }
+            > div{
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                
+                h2, .choice_btn{
+                    margin-bottom: 10px;
+                    margin-top: 10px;
+                }
+                .choice_btn{
+                    height:70px;
+                }
+            }
+            div.plats, div.entrees, div.desserts {
+                height: fit-content;
+                margin-top: 20px;
+                margin-bottom: 20px;
+            }
+ 
+            
+            div.submit{
+                height:100px;
+                input[type="submit"]{
+                    font-weight: bold;
+                    font-size: 105%;
+                }
+            }
+        }
+        /*+++++++++++++++++++++++ definition du bouton label */
+        .choice_btn{
+            display: flex;
+            justify-content: space-between;
+            background-color: white;
+            border-radius: 15px;
+            cursor: pointer;
+            overflow: hidden;
+            width: 90%;
+            box-shadow: 0px 0px 5px gray;
+
+            .btn_txt{
+                padding: 15px;
+                width:100%;
+                transition: width .5s ease-in;
+                > span:nth-child(2){
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: baseline;
+                    white-space: nowrap;
+                }
+                .p,.h3{
+                    white-space: nowrap;
+                    overflow: hidden;
+                }
+                .h3{
+                    font-size: 105%;
+                    font-weight: bold;
+                }
+                .p{
+                    font-size: 85%;
+                }
+            } 
+            .checkbox{
+                position: relative;
+                left:60px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width:0%;
+                background-color: $ctertiaire;
+                transition: left .3s ease-in, width .5s ease-in;
+                
+                /*++++++++++++++++++++++++ desing et comportement de la virgule de validation */
+                span.checkmark{
+                    border-radius: 20px;
+                    width:25px;
+                    height:25px;
+                    transform: rotate(360deg);
+                    background-color:white ;
+                    transition: transform .8s ease-out;
+                }
+                span.checkmark::after{
+                    content: "";
+                    position: absolute;
+                    margin-left: 25.7%;
+                    margin-top: 5.5%;
+                    width: 8px;
+                    height: 13px;
+                    border:solid $ctertiaire;
+                    border-width: 0 2px 2px 0;
+                    transform: rotate(45deg);
+                    opacity: 0;
+                    transition: opacity 2s ease;
+                }
+            }
+        }
+
+        /*+++++++++++++++++++++++++++++++++++ fonctionnement du input */
+        input[type="checkbox"]{
+            display: none;
+
+            &:checked + label{
+                .btn_txt{
+                    width:85%;
+                    .p,.h3{
+                        text-overflow: ellipsis;
+                    }
+                }
+                span.checkmark{
+                    transform: rotate(0deg);
+                }
+                span.checkmark:after{
+                    opacity: 1;
+                }
+                .checkbox{
+                    left:0px;
+                    width:15%;
+                }
+            }
+            
+        }
+    }

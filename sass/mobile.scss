@@ -32,7 +32,7 @@
                 height:fit-content;
             }
         }
-        div{
+        .btn-fc{
             display: flex;
             align-items:baseline ;
             margin:auto; 
@@ -43,6 +43,9 @@
                 font-size: 120%;
                 margin-right: 20px;
                 color:gray;
+            }
+            p{
+                margin-left: 7%;
             }
         }
         
@@ -71,159 +74,38 @@
         }
         
     }
-
-    /*+++++++++++++++++++++++++++++++++++ Animation des plats : Pages des MENUS */
-    @keyframes slideInLeft {
-        0% {
-            transform: translateX(-100%);
-            opacity: 0;
-        }
-        100% {
-            transform: translateX(0);
-            opacity: 1;
+    /*+++++++++++++++++++++++++++++++++++ PAGES des MENUS */
+    section#restaurant_picture{
+        figure{
+            height: 320px; 
         }
     }
+    
     /*++++++++++++++++++++++++++++++++ Design section des MENUS */
     section#menus{
-        height: 100vh;
-        background-color: #f6f6f6;
         form{
-            width:100%;
             h2{
-                position: relative;
-                width: fit-content;
-                margin-left:5%;
-                font-size:small;
                 align-self: flex-start;
             
                 &:after{
-                    position: absolute;
-                    content:"";
-                    border-bottom: 2px solid $ctertiaire;
                     width:28px;
-                    left: 0;
-                    bottom: -5px;
-                    
                 }
             }
             > div{
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                justify-content: space-around;
+                justify-content: space-around; 
             }
-            div.plats, div.entrees, div.desserts {
-                height: 30vh;
-            }
-            div.entrees, .entrees > h2{
+            div.entrees, h2:nth-child(1){
                 animation:slideInLeft 1.0s ease-in 0s ;} 
-            div.plats, .plats > h2{ 
+            div.plats, h2:nth-child(3){ 
                 animation:slideInLeft 1.5s ease-in 0s ;} 
-            div.desserts, .desserts > h2 {
+            div.desserts, h2:nth-child(5) {
                 animation:slideInLeft 2.0s ease-in 0s ;}
             div.submit{
-                height:100px;
 
                 input[type="submit"]{
-                    @extend %btn;
-                    @extend %bg_grad;
                     width: 50%;
-                    font-weight: bold;
-                    font-size: 105%;
                 }
             }
-        }
-        /*+++++++++++++++++++++++ definition du bouton label */
-        .choice_btn{
-            display: flex;
-            justify-content: space-between;
-            background-color: white;
-            border-radius: 15px;
-            cursor: pointer;
-            overflow: hidden;
-            width: 90%;
-            box-shadow: 0px 0px 5px gray;
-
-            .btn_txt{
-                padding: 15px;
-                width:100%;
-                transition: width .5s ease-in;
-                > span:nth-child(2){
-                    display: flex;
-                    justify-content: space-between;
-                    align-items: baseline;
-                    white-space: nowrap;
-                }
-                .p,.h3{
-                    white-space: nowrap;
-                    overflow: hidden;
-                }
-                .h3{
-                    font-size: 105%;
-                    font-weight: bold;
-                }
-                .p{
-                    font-size: 85%;
-                }
-            } 
-            .checkbox{
-                position: relative;
-                left:60px;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                width:0%;
-                background-color: $ctertiaire;
-                transition: left .3s ease-in, width .5s ease-in;
-                
-                /*++++++++++++++++++++++++ desing et comportement de la virgule de validation */
-                span.checkmark{
-                    border-radius: 20px;
-                    width:25px;
-                    height:25px;
-                    transform: rotate(360deg);
-                    background-color:white ;
-                    transition: transform .8s ease-out;
-                }
-                span.checkmark::after{
-                    content: "";
-                    position: absolute;
-                    margin-left: 25.7%;
-                    margin-top: 5.5%;
-                    width: 8px;
-                    height: 13px;
-                    border:solid $ctertiaire;
-                    border-width: 0 2px 2px 0;
-                    transform: rotate(45deg);
-                    opacity: 0;
-                    transition: opacity 2s ease;
-                }
-            }
-        }
-
-        /*+++++++++++++++++++++++++++++++++++ fonctionnement du input */
-        input[type="checkbox"]{
-            display: none;
-
-            &:checked + label{
-                .btn_txt{
-                    width:85%;
-                    .p,.h3{
-                        text-overflow: ellipsis;
-                    }
-                }
-                span.checkmark{
-                    transform: rotate(0deg);
-                }
-                span.checkmark:after{
-                    opacity: 1;
-                }
-                .checkbox{
-                    left:0px;
-                    width:15%;
-                }
-            }
-            
         }
     }
 

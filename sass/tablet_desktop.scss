@@ -1,4 +1,12 @@
 @media screen and (min-width:601px){
+    @import 'default.scss';
+    header {
+        align-items: center;
+        > p{
+            height:35px;
+        }
+    }   
+    
     section#decouverte{
         padding-bottom: 4px;
         background-color: #eaeaea;
@@ -15,5 +23,93 @@
                 object-fit: cover;
             }
         } 
+    }
+
+    /*+++++++++++++++++++++++++ PAGE accueil */
+    section#fonctionnement{
+        height:300px;
+        padding-top: 50px;
+        padding-bottom: 40px;
+        @extend %column;
+        justify-content: space-around;
+
+        h1{
+            margin-left: 15px;
+            margin-bottom: 10px;
+            width: 100%;
+        }
+        ul.menu_fonctionnement{
+            justify-content: space-around;
+        }
+        div{
+            display: flex;
+            align-items:baseline ;
+            margin:auto; 
+            font-weight: bold;
+            font-size: 91%;
+            
+            i{
+                font-size: 120%;
+                margin-right: 20px;
+                color:gray;
+            }
+        }
+    }
+    
+    section#restaurant{
+        @extend %column;
+        justify-content: space-around;
+        flex-wrap: wrap;
+        background-color: #f6f6f6;
+        h1{
+            align-self: flex-start;
+            margin-left: 20px;
+            padding-bottom: 15px;
+        }
+        ul.menu_restaurant{
+            justify-content: space-around;
+        }
+    }
+    /*++++++++++++++++++++++++++++++++ Design section des MENUS */
+    section#menus{
+        form{
+            display: flex;
+            flex-flow: row wrap;
+            h2{
+            
+                &:after{
+                    width:100%; /* change for tablet */
+                }
+            }
+            div.submit{
+                width: inherit;
+            }
+        }
+    }
+    /*++++++++++++++++++++++++++++++++++ FOOTER */
+    footer{
+        @extend %column;
+        background-color: #353535;
+        padding:20px;
+        h2,a{
+            color: white;
+            line-height: 30px;
+        }
+        h2{
+            margin-bottom: 20px;
+        }
+        ul{
+            display: flex;
+            justify-content: flex-start;
+            i{
+                margin-right: 10px;
+            }
+            li:nth-child(1) i{
+                font-size: 90%;
+            }
+            li:nth-child(2) i{
+                font-size: 60%;
+            }
+        }
     }
 }
