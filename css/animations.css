@@ -130,8 +130,7 @@ div.card a picture.nouveau:after {
   border-radius: 2px;
   padding: 7px 10px 7px 10px;
   top: 5%;
-  left: 68%;
-  height: 15px;
+  right: 15px;
   background-color: #99E2D0;
   color: green;
   font-weight: bold;
@@ -329,7 +328,7 @@ section#menus input[type=checkbox]:checked + label .checkbox {
 }
 
 /*+++++++++++++++++++++++++++++++++++ LOAD SPINNER */
-@keyframes xload {
+@keyframes load {
   0%, 70% {
     opacity: 0;
   }
@@ -337,7 +336,7 @@ section#menus input[type=checkbox]:checked + label .checkbox {
     opacity: 1;
   }
 }
-@keyframes xrotate_spinner {
+@keyframes rotate_spinner {
   0% {
     opacity: 1;
     transform: rotate(2360deg);
@@ -349,12 +348,12 @@ section#menus input[type=checkbox]:checked + label .checkbox {
     font-size: 60%;
   }
 }
-header, section, footer {
+.home_load {
   animation: load 4s ease-out 0s;
 }
 
 i.fa-spinner {
-  position: absolute;
+  position: fixed;
   z-index: 100;
   top: 50%;
   left: 50%;
@@ -403,6 +402,9 @@ div.icon_container i:nth-child(2)::after {
   opacity: 1;
   height: 90%;
   transition: opacity 2s ease-in, height 0.8s ease-in;
+}
+div.icon_container i:hover {
+  cursor: pointer;
 }
 
 div.icon_container input[type=checkbox]:checked + label i:nth-child(2)::after {

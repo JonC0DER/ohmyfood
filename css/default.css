@@ -126,8 +126,7 @@ div.card a picture.nouveau:after {
   border-radius: 2px;
   padding: 7px 10px 7px 10px;
   top: 5%;
-  left: 68%;
-  height: 15px;
+  right: 15px;
   background-color: #99E2D0;
   color: green;
   font-weight: bold;
