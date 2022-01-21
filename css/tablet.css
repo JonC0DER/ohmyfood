@@ -1,7 +1,7 @@
 @media screen and (min-width: 601px) and (max-width: 991px) {
-  @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap");
+  @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700&display=swap");
   @import url("https://fonts.googleapis.com/css2?family=Shrikhand&display=swap");
-  h1, h2, h3, .h3, h4, h5, h6, p, .p {
+  h1, h2, h3, .h3, h4, h5, h6, p, .p, footer a {
     font-family: "Roboto", sans-serif;
   }
 
@@ -166,10 +166,14 @@ ul.menu_fonctionnement, ul.menu_restaurant, div.card, div.card_txt {
     color: #9356DC;
   }
   ul.menu_fonctionnement div.btn-fc span {
-    margin-left: -35px;
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    margin-left: -40px;
     margin-right: 20px;
     color: white;
-    padding: 5px 7px 5px 7px;
     background-color: #9356DC;
   }
 
@@ -208,6 +212,7 @@ ul.menu_fonctionnement, ul.menu_restaurant, div.card, div.card_txt {
     width: fit-content;
     margin-left: 5%;
     font-size: small;
+    font-weight: 300;
   }
   section#menus form h2:after {
     position: absolute;
