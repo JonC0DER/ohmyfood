@@ -277,6 +277,7 @@ section#menus .choice_btn .btn_txt span strong {
 section#menus .choice_btn .btn_txt .p, section#menus .choice_btn .btn_txt .h3 {
   white-space: nowrap;
   overflow: hidden;
+  text-overflow: ellipsis;
 }
 section#menus .choice_btn .btn_txt .h3 {
   font-size: 105%;
@@ -322,9 +323,9 @@ section#menus input[type=checkbox] {
 }
 section#menus input[type=checkbox]:checked + label .btn_txt {
   width: 85%;
-}
-section#menus input[type=checkbox]:checked + label .btn_txt .p + .h3 {
-  text-overflow: ellipsis;
+  /*.p +.h3{
+      text-overflow: ellipsis;
+  }*/
 }
 section#menus input[type=checkbox]:checked + label span.checkmark {
   transform: rotate(0deg);

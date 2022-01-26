@@ -93,7 +93,8 @@ header, section, footer {
 
 header, section, footer,
 div.map, div.map_title, div.reservation,
-ul.menu_fonctionnement, ul.menu_restaurant, div.card, div.card_txt {
+ul.menu_fonctionnement, ul.menu_restaurant, div.card, div.card_txt,
+.choice_btn > .btn_txt {
   display: flex;
 }
 
@@ -127,6 +128,7 @@ div.card a picture {
 div.card a picture.nouveau:after {
   content: "Nouveau";
   position: absolute;
+  font-family: "Roboto", sans-serif;
   border-radius: 2px;
   padding: 7px 10px 7px 10px;
   top: 5%;
@@ -139,6 +141,9 @@ div.card div.card_txt {
   padding: 15px;
   height: 30%;
   justify-content: space-between;
+}
+div.card div.card_txt .card_txt_bloc h3 {
+  padding-bottom: 5px;
 }
 
 /*+++++++++++++++++++++++++++++++++++ HOME section DECOUVERTE*/
@@ -259,6 +264,7 @@ section#menus .choice_btn {
   box-shadow: 0px 0px 5px gray;
 }
 section#menus .choice_btn .btn_txt {
+  flex-direction: column;
   padding: 15px;
   width: 100%;
   transition: width 0.5s ease-in;
@@ -269,9 +275,13 @@ section#menus .choice_btn .btn_txt > span:nth-child(2) {
   align-items: baseline;
   white-space: nowrap;
 }
+section#menus .choice_btn .btn_txt span strong {
+  font-family: "Roboto", sans-serif;
+}
 section#menus .choice_btn .btn_txt .p, section#menus .choice_btn .btn_txt .h3 {
   white-space: nowrap;
   overflow: hidden;
+  text-overflow: ellipsis;
 }
 section#menus .choice_btn .btn_txt .h3 {
   font-size: 105%;
@@ -317,9 +327,9 @@ section#menus input[type=checkbox] {
 }
 section#menus input[type=checkbox]:checked + label .btn_txt {
   width: 85%;
-}
-section#menus input[type=checkbox]:checked + label .btn_txt .p, section#menus input[type=checkbox]:checked + label .btn_txt .h3 {
-  text-overflow: ellipsis;
+  /*.p +.h3{
+      text-overflow: ellipsis;
+  }*/
 }
 section#menus input[type=checkbox]:checked + label span.checkmark {
   transform: rotate(0deg);

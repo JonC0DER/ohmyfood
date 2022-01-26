@@ -1,9 +1,9 @@
+@import 'default.scss';
 @media screen and (min-width:601px) and (max-width:991px) {
-    @import 'default.scss';
     :root{
         min-width:601px;
         max-width: 991px;
-        width:100% auto;
+        width:100%;
     }
     /*+++++++++++++++++++++++++ PAGE accueil */
     section#fonctionnement{

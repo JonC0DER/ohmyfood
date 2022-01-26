@@ -20,16 +20,25 @@ $ctertiaire : #99E2D0;
 %jstfy_c_center{
     justify-content: center;
 }
-%column{
+@mixin column {
     flex-direction: column;
 }
-%column_jst_center{
+@mixin column_jst_center {
     flex-direction: column;
     justify-content: center;
 }
-%column_algn_center{
+@mixin column_algn_center{
     flex-direction: column;
     align-items: center;
+}
+%column{
+    @include column;
+}
+%column_jst_center{
+    @include column_jst_center;
+}
+%column_algn_center{
+    @include column_algn_center;
 }
 %bg_grad{
     background-image: linear-gradient(
@@ -296,6 +305,7 @@ section#restaurant_picture{
                 .p,.h3{
                     white-space: nowrap;
                     overflow: hidden;
+                    text-overflow: ellipsis;
                 }
                 .h3{
                     font-size: 105%;
@@ -347,9 +357,9 @@ section#restaurant_picture{
             &:checked + label{
                 .btn_txt{
                     width:85%;
-                    .p +.h3{
+                    /*.p +.h3{
                         text-overflow: ellipsis;
-                    }
+                    }*/
                 }
                 span.checkmark{
                     transform: rotate(0deg);

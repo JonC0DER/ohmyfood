@@ -1,5 +1,5 @@
+@import 'default.scss';
 @media screen and (min-width:200px) and (max-width:600px){
-    @import 'default.scss';
     :root{
         min-width:200px;
         max-width: 600px;
@@ -8,7 +8,7 @@
     
     /*+++++++++++++++++++++++++++++++++++ HOME */
     section#decouverte{
-        @extend %column;
+        @include column;
         
         p.openstreetmap{
             display: none;
@@ -19,13 +19,13 @@
         height:500px;
         padding-top: 50px;
         padding-bottom: 40px;
-        @extend %column; 
+        @include column; 
         h1{
             margin-left: 15px;
             margin-bottom: 10px;
         }
         ul.menu_fonctionnement{
-            @extend %column; 
+            @include column; 
             justify-content: space-around;
             height: inherit;
             li{
@@ -52,7 +52,7 @@
     }
     /*+++++++++++++++++++++++++++++++++ restaurant cards section */
     section#restaurant{
-        @extend %column_algn_center;
+        @include column_algn_center;
         justify-content: space-around;
         height:1350px;
         background-color: #f6f6f6;
@@ -64,7 +64,7 @@
             padding-bottom: 15px;
         }
         ul.menu_restaurant{
-            @extend %column;
+            @include column;
             width: 90%;
             height: 1200px;
             justify-content: space-around;
