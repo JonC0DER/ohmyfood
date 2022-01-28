@@ -32,6 +32,9 @@
     section#restaurant_picture{
         figure{
             height: 400px; /* a revoir */
+            figcaption{
+                justify-content: center;
+            }
         }
     }   
     /*++++++++++++++++++++++++++++++++ Design section des MENUS */

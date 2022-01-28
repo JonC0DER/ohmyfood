@@ -78,6 +78,9 @@
     section#restaurant_picture{
         figure{
             height: 320px; 
+            figcaption{
+                justify-content: space-between;
+            }
         }
     }
     

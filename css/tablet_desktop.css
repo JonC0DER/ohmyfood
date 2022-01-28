@@ -2,6 +2,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Shrikhand&display=swap");
 h1, h2, h3, .h3, h4, h5, h6, p, .p, footer a {
   font-family: "Roboto", sans-serif;
+  width: fit-content;
 }
 
 title, .logo {
@@ -42,7 +43,7 @@ ul.menu_fonctionnement div.btn-fc {
   border-radius: 25px;
 }
 
-ul.menu_fonctionnement div.btn-fc, section#decouverte div.reservation button, div.card a picture.nouveau:after {
+ul.menu_fonctionnement div.btn-fc, section#decouverte div.reservation button, div.card picture.nouveau:after {
   /* boutons box shadow */
   box-shadow: 0px 2px 5px rgba(150, 150, 150, 0.4);
 }
@@ -115,13 +116,10 @@ header p {
 div.card {
   position: relative;
 }
-div.card a {
+div.card picture {
   height: 70%;
 }
-div.card a picture {
-  height: 100%;
-}
-div.card a picture.nouveau:after {
+div.card picture.nouveau:after {
   content: "Nouveau";
   position: absolute;
   font-family: "Roboto", sans-serif;
@@ -133,12 +131,12 @@ div.card a picture.nouveau:after {
   color: green;
   font-weight: bold;
 }
-div.card div.card_txt {
+div.card .card_txt {
   padding: 15px;
   height: 30%;
   justify-content: space-between;
 }
-div.card div.card_txt .card_txt_bloc h3 {
+div.card .card_txt .card_txt_bloc h3 {
   padding-bottom: 5px;
 }
 
@@ -188,12 +186,10 @@ section#restaurant_picture figure {
 }
 section#restaurant_picture figure figcaption {
   display: flex;
-  justify-content: center;
   align-items: baseline;
   position: absolute;
   bottom: -2px;
-  padding-top: 15px;
-  padding-bottom: 15px;
+  padding: 15px;
   width: 100%;
   border-radius: 25px 25px 0px 0px;
   background-color: #f6f6f6;
@@ -375,7 +371,6 @@ section#menus input[type=checkbox]:checked + label .checkbox {
   section#fonctionnement h1 {
     margin-left: 15px;
     margin-bottom: 10px;
-    width: 100%;
   }
   section#fonctionnement ul.menu_fonctionnement {
     justify-content: space-around;
@@ -390,7 +385,6 @@ section#menus input[type=checkbox]:checked + label .checkbox {
   section#fonctionnement div i {
     font-size: 120%;
     margin-right: 20px;
-    color: gray;
   }
 
   section#restaurant {

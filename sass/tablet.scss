@@ -40,6 +40,9 @@
     section#restaurant_picture{
         figure{
             height: 400px;
+            figcaption{
+                justify-content: space-between;
+            }
         }
     }
     /*++++++++++++++++++++++++++++++++ Design section des MENUS */
