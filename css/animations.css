@@ -45,7 +45,7 @@ ul.menu_fonctionnement div.btn-fc {
 }
 
 div.submit > input[type=submit],
-div.reservation > button, ul.menu_fonctionnement div.btn-fc, section#decouverte div.reservation button, div.card a picture.nouveau:after {
+div.reservation > button, ul.menu_fonctionnement div.btn-fc, section#decouverte div.reservation button, div.card picture.nouveau:after {
   /* boutons box shadow */
   box-shadow: 0px 2px 5px rgba(150, 150, 150, 0.4);
 }
@@ -119,13 +119,10 @@ header p {
 div.card {
   position: relative;
 }
-div.card a {
+div.card picture {
   height: 70%;
 }
-div.card a picture {
-  height: 100%;
-}
-div.card a picture.nouveau:after {
+div.card picture.nouveau:after {
   content: "Nouveau";
   position: absolute;
   font-family: "Roboto", sans-serif;
@@ -137,12 +134,12 @@ div.card a picture.nouveau:after {
   color: green;
   font-weight: bold;
 }
-div.card div.card_txt {
+div.card .card_txt {
   padding: 15px;
   height: 30%;
   justify-content: space-between;
 }
-div.card div.card_txt .card_txt_bloc h3 {
+div.card .card_txt .card_txt_bloc h3 {
   padding-bottom: 5px;
 }
 
@@ -192,12 +189,11 @@ section#restaurant_picture figure {
 }
 section#restaurant_picture figure figcaption {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: baseline;
   position: absolute;
   bottom: -2px;
-  padding-top: 15px;
-  padding-bottom: 15px;
+  padding: 15px;
   width: 100%;
   border-radius: 25px 25px 0px 0px;
   background-color: #f6f6f6;
@@ -393,11 +389,19 @@ div.icon_container {
 div.icon_container input.heart {
   display: none;
 }
+div.icon_container label {
+  display: flex;
+  justify-content: center;
+  width: 25px;
+  height: 20px;
+}
 div.icon_container i:nth-child(1) {
   font-size: 22px;
   position: absolute;
   z-index: 1;
   top: -1px;
+  opacity: 1;
+  transition: opacity 1.5s linear;
 }
 div.icon_container i:nth-child(2) {
   font-size: 20px;
@@ -422,6 +426,9 @@ div.icon_container i:hover {
   cursor: pointer;
 }
 
+div.icon_container input[type=checkbox]:checked + label i:nth-child(1) {
+  opacity: 0;
+}
 div.icon_container input[type=checkbox]:checked + label i:nth-child(2)::after {
   opacity: 0;
   height: 1%;
@@ -439,6 +446,15 @@ div.submit > input[type=submit]:hover,
 div.reservation > button:hover {
   cursor: pointer;
   background-position: top left;
+}
+
+/*+++++++++++++++++++++++++++++++++ section#fonctionnement home page */
+.btn-fc i {
+  color: gray;
+  transition: color 0.5s linear;
+}
+.btn-fc:hover i {
+  color: #9356DC;
 }
 
 /*+++++++++++++++++++++++++++++++++++ Animation des plats : Pages des MENUS */

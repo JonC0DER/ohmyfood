@@ -50,12 +50,19 @@ div.icon_container{
     input.heart{
         display:none;
     }
-
+    label{
+        display: flex;
+        justify-content: center;
+        width: 25px;
+        height: 20px;
+    }
     i:nth-child(1){
         font-size: 22px;
         position: absolute;
         z-index: 1;
         top:-1px;
+        opacity:1;
+        transition: opacity 1.5s linear ;
     }
     i:nth-child(2){
         font-size: 20px;
@@ -81,9 +88,14 @@ div.icon_container{
         cursor: pointer;
     }
 } 
-div.icon_container input[type="checkbox"]:checked + label i:nth-child(2)::after{
-    opacity: 0;
-    height:1%;
+div.icon_container input[type="checkbox"]:checked + label {
+    i:nth-child(1){
+        opacity:0;
+    }
+    i:nth-child(2)::after{
+        opacity: 0;
+        height:1%;
+    }
 }
 /*+++++++++++++++++++++++++++++++ Button gradient animation */
 div.submit > input[type="submit"],
@@ -98,6 +110,16 @@ div.reservation > button{
         cursor: pointer;
         background-position:top left;
         @extend %btn_bx-sh_hover;
+    }
+}
+/*+++++++++++++++++++++++++++++++++ section#fonctionnement home page */
+.btn-fc {
+    i {
+        color:gray;
+        transition: color 0.5s linear;
+    }
+    &:hover i{
+        color:$cprimaire;
     }
 }
 /*+++++++++++++++++++++++++++++++++++ Animation des plats : Pages des MENUS */
