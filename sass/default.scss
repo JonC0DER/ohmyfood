@@ -1,109 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Shrikhand&display=swap');
-
-h1,h2,h3,.h3,h4,h5,h6,p,.p, footer a{
-    font-family: 'Roboto', sans-serif;
-    width: fit-content;
-}
-title, .logo{
-    font-family: 'Shrikhand', cursive;
-}
-$cprimaire : #9356DC;
-$csecondaire : #FF79DA;
-$ctertiaire : #99E2D0;
-
-*{
-    box-sizing: border-box;
-    padding: 0;
-    margin: 0;
-}
-
-%jstfy_c_center{
-    justify-content: center;
-}
-@mixin column {
-    flex-direction: column;
-}
-@mixin column_jst_center {
-    flex-direction: column;
-    justify-content: center;
-}
-@mixin column_algn_center{
-    flex-direction: column;
-    align-items: center;
-}
-%column{
-    @include column;
-}
-%column_jst_center{
-    @include column_jst_center;
-}
-%column_algn_center{
-    @include column_algn_center;
-}
-%bg_grad{
-    background-image: linear-gradient(
-        355deg,
-        rgba(147, 86, 220, 0.8) 20%,
-        rgba(255, 121, 218,1) 100%,
-        rgba(252, 174, 229, 0.5) 0%
-    );
-}
-%btn{
-    width: fit-content;
-    padding: 20px;
-    border-radius: 50px/50px;
-    border:none;
-    color:white;
-}
-%btn-fc{ /*bouttons section fonctionnement -> page accueil */
-    background-color:#f6f6f6;
-    width:80%;
-    padding:22px;
-    border-radius: 25px;
-}
-%btn_bx-sh{/* boutons box shadow */
-    box-shadow: 0px 2px 5px rgba(150,150,150,40%);
-}
-%btn_bx-sh_hover{/* boutons box shadow : hover */
-    box-shadow: 0px 3px 8px rgba(150,150,150,50%);
-}
-%circle{
-    border-radius: 100%/100%;
-}
-%card{
-    width:100%;
-    height:270px;
-    border-radius: 15px;
-    box-shadow: 0px 3px 10px gray;
-    overflow: hidden;
-}
-a{
-    text-decoration: none;
-    color:black;
-}
-li{
-    list-style: none;
-}
-img{
-    width:100%;
-    height:100%;
-}
-div.card  picture > img,
-picture > img{
-    object-fit: cover;
-}
-header, section, footer{
-    width: 100%;
-}
-header, section, footer,
-div.map, div.map_title, div.reservation,
-ul.menu_fonctionnement,ul.menu_restaurant, div.card, div.card_txt,
-.choice_btn > .btn_txt{
-    display: flex;
-}
-
-
+@import 'init.scss';
+@import 'variables.scss';
 /*+++++++++++++++++++++++++++++++++++ HEADER */
 header{
     position: sticky;
@@ -208,7 +104,6 @@ section#restaurant_picture{
     figure{
         position:relative;
         width:100%;
-        
         figcaption{
             display: flex;
             align-items: baseline;
@@ -225,149 +120,149 @@ section#restaurant_picture{
         }
     }
 }
-   /*++++++++++++++++++++++++++++++++ Design section des MENUS */
-    section#menus{
-        background-color: #f6f6f6;
-        form{
-            width:100%;
-            h2{
-                position: relative;
-                width: fit-content;
-                margin-left:5%;
-                font-size:small;
-                font-weight: 300;
-            
-                &:after{
-                    position: absolute;
-                    content:"";
-                    border-bottom: 2px solid $ctertiaire;
-                    left: 0;
-                    bottom: -5px;
-                }
-            }
-            > div{
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                
-                h2, .choice_btn{
-                    margin-bottom: 10px;
-                    margin-top: 10px;
-                }
-                .choice_btn{
-                    height:70px;
-                }
-            }
-            div.plats, div.entrees, div.desserts {
-                height: fit-content;
-                margin-top: 20px;
-                margin-bottom: 20px;
-            }
+/*++++++++++++++++++++++++++++++++ Design section des MENUS */
+ section#menus{
+     background-color: #f6f6f6;
+     form{
+         width:100%;
+         h2{
+             position: relative;
+             width: fit-content;
+             margin-left:5%;
+             font-size:small;
+             font-weight: 300;
+         
+             &:after{
+                 position: absolute;
+                 content:"";
+                 border-bottom: 2px solid $ctertiaire;
+                 left: 0;
+                 bottom: -5px;
+             }
+         }
+         > div{
+             display: flex;
+             flex-direction: column;
+             align-items: center;
+             
+             h2, .choice_btn{
+                 margin-bottom: 10px;
+                 margin-top: 10px;
+             }
+             .choice_btn{
+                 height:70px;
+             }
+         }
+         div.plats, div.entrees, div.desserts {
+             height: fit-content;
+             margin-top: 20px;
+             margin-bottom: 20px;
+         }
  
-            
-            div.submit{
-                height:100px;
-                input[type="submit"]{
-                    font-weight: bold;
-                    font-size: 105%;
-                }
-            }
-        }
-        /*+++++++++++++++++++++++ definition du bouton label */
-        .choice_btn{
-            display: flex;
-            justify-content: space-between;
-            background-color: white;
-            border-radius: 15px;
-            cursor: pointer;
-            overflow: hidden;
-            width: 90%;
-            box-shadow: 0px 0px 5px gray;
+         
+         div.submit{
+             height:100px;
+             input[type="submit"]{
+                 font-weight: bold;
+                 font-size: 105%;
+             }
+         }
+     }
+     /*+++++++++++++++++++++++ definition du bouton label */
+     .choice_btn{
+         display: flex;
+         justify-content: space-between;
+         background-color: white;
+         border-radius: 15px;
+         cursor: pointer;
+         overflow: hidden;
+         width: 90%;
+         box-shadow: 0px 0px 5px gray;
 
-            .btn_txt{
-                flex-direction: column;
-                padding: 15px;
-                width:100%;
-                transition: width .5s ease-in;
-                > span:nth-child(2){
-                    display: flex;
-                    justify-content: space-between;
-                    align-items: baseline;
-                    white-space: nowrap;
-                }
-                span strong{
-                    font-family: 'Roboto', sans-serif;
-                }
-                .p,.h3{
-                    white-space: nowrap;
-                    overflow: hidden;
-                    text-overflow: ellipsis;
-                }
-                .h3{
-                    font-size: 105%;
-                    font-weight: bold;
-                }
-                .p{
-                    font-size: 85%;
-                }
-            } 
-            .checkbox{
-                position: relative;
-                left:60px;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                width:0%;
-                background-color: $ctertiaire;
-                transition: left .3s ease-in, width .5s ease-in;
-                
-                /*++++++++++++++++++++++++ desing et comportement de la virgule de validation */
-                span.checkmark{
-                    border-radius: 20px;
-                    width:25px;
-                    height:25px;
-                    transform: rotate(360deg);
-                    background-color:white ;
-                    transition: transform .8s ease-out;
-                }
-                span.checkmark::after{
-                    content: "";
-                    position: absolute;
-                    margin-left: 25.7%;
-                    margin-top: 5.5%;
-                    width: 8px;
-                    height: 13px;
-                    border:solid $ctertiaire;
-                    border-width: 0 2px 2px 0;
-                    transform: rotate(45deg);
-                    opacity: 0;
-                    transition: opacity 2s ease;
-                }
-            }
-        }
+         .btn_txt{
+             flex-direction: column;
+             padding: 15px;
+             width:100%;
+             transition: width .5s ease-in;
+             > span:nth-child(2){
+                 display: flex;
+                 justify-content: space-between;
+                 align-items: baseline;
+                 white-space: nowrap;
+             }
+             span strong{
+                 font-family: 'Roboto', sans-serif;
+             }
+             .p,.h3{
+                 white-space: nowrap;
+                 overflow: hidden;
+                 text-overflow: ellipsis;
+             }
+             .h3{
+                 font-size: 105%;
+                 font-weight: bold;
+             }
+             .p{
+                 font-size: 85%;
+             }
+         } 
+         .checkbox{
+             position: relative;
+             left:60px;
+             display: flex;
+             justify-content: center;
+             align-items: center;
+             width:0%;
+             background-color: $ctertiaire;
+             transition: left .3s ease-in, width .5s ease-in;
+             
+             /*++++++++++++++++++++++++ desing et comportement de la virgule de validation */
+             span.checkmark{
+                 border-radius: 20px;
+                 width:25px;
+                 height:25px;
+                 transform: rotate(360deg);
+                 background-color:white ;
+                 transition: transform .8s ease-out;
+             }
+             span.checkmark::after{
+                 content: "";
+                 position: absolute;
+                 margin-left: 25.7%;
+                 margin-top: 5.5%;
+                 width: 8px;
+                 height: 13px;
+                 border:solid $ctertiaire;
+                 border-width: 0 2px 2px 0;
+                 transform: rotate(45deg);
+                 opacity: 0;
+                 transition: opacity 2s ease;
+             }
+         }
+     }
 
-        /*+++++++++++++++++++++++++++++++++++ fonctionnement du input */
-        input[type="checkbox"]{
-            display: none;
+     /*+++++++++++++++++++++++++++++++++++ fonctionnement du input */
+     input[type="checkbox"]{
+         display: none;
 
-            &:checked + label{
-                .btn_txt{
-                    width:85%;
-                    /*.p +.h3{
-                        text-overflow: ellipsis;
-                    }*/
-                }
-                span.checkmark{
-                    transform: rotate(0deg);
-                }
-                span.checkmark:after{
-                    opacity: 1;
-                }
-                .checkbox{
-                    left:0px;
-                    width:15%;
-                }
-            }
-            
-        }
-    }
+         &:checked + label{
+             .btn_txt{
+                 width:85%;
+                 /*.p +.h3{
+                     text-overflow: ellipsis;
+                 }*/
+             }
+             span.checkmark{
+                 transform: rotate(0deg);
+             }
+             span.checkmark:after{
+                 opacity: 1;
+             }
+             .checkbox{
+                 left:0px;
+                 width:15%;
+             }
+         }
+         
+     }
+ }
