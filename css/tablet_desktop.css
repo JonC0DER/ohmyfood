@@ -189,7 +189,7 @@ section#restaurant_picture figure figcaption {
   align-items: baseline;
   position: absolute;
   bottom: -2px;
-  padding: 15px;
+  padding: 20px;
   width: 100%;
   border-radius: 25px 25px 0px 0px;
   background-color: #f6f6f6;
@@ -355,6 +355,7 @@ section#menus input[type=checkbox]:checked + label .checkbox {
   }
   section#decouverte p.openstreetmap {
     height: 210px;
+    width: 100%;
   }
   section#decouverte p.openstreetmap img {
     object-fit: cover;
