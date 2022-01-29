@@ -22,28 +22,32 @@ div.card{
     position: relative;
     @extend %column;
     @extend %card;
-        picture{
-            height: 70%;
-        }
-        picture.nouveau:after{
-            content: "Nouveau";
-            position:absolute;
-            font-family: 'Roboto', sans-serif;
-            border-radius: 2px;
-            @extend %btn_bx-sh;
-            padding:7px 10px 7px 10px;
-            top:5%;
-            right: 15px;
-            background-color: $ctertiaire;
-            color:green;
-            font-weight: bold;
-        }
-        .card_txt{
-        padding: 15px;
+    a{ height: 70%;}
+    picture{
+        height: 100%;
+    }
+    picture.nouveau:after{
+        content: "Nouveau";
+        position:absolute;
+        font-family: 'Roboto', sans-serif;
+        border-radius: 2px;
+        @extend %btn_bx-sh;
+        padding:7px 10px 7px 10px;
+        top:5%;
+        right: 15px;
+        background-color: $ctertiaire;
+        color:green;
+        font-weight: bold;
+    }
+    .card_txt{
         height:30%;
         justify-content: space-between;
-        .card_txt_bloc h3{
-            padding-bottom: 5px;
+        a{ height: 100%; width: 88%;}
+        .card_txt_bloc{
+            padding:15px;
+            h3{
+                padding-bottom: 5px;
+            }
         }
     }
 }

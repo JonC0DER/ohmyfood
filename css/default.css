@@ -116,8 +116,11 @@ header p {
 div.card {
   position: relative;
 }
-div.card picture {
+div.card a {
   height: 70%;
+}
+div.card picture {
+  height: 100%;
 }
 div.card picture.nouveau:after {
   content: "Nouveau";
@@ -132,9 +135,15 @@ div.card picture.nouveau:after {
   font-weight: bold;
 }
 div.card .card_txt {
-  padding: 15px;
   height: 30%;
   justify-content: space-between;
+}
+div.card .card_txt a {
+  height: 100%;
+  width: 88%;
+}
+div.card .card_txt .card_txt_bloc {
+  padding: 15px;
 }
 div.card .card_txt .card_txt_bloc h3 {
   padding-bottom: 5px;

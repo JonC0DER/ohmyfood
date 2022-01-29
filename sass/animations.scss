@@ -1,4 +1,5 @@
-@import 'default.scss';
+@import 'init.scss';
+@import 'variables.scss';
 /*+++++++++++++++++++++++++++++++++++ LOAD SPINNER */
 @keyframes load{
     0%,70%{
@@ -21,7 +22,7 @@
     }
 }
 .home_load{
-    animation: load 4s ease-out 0s;
+    animation: load 3s ease-out 0s;
 }
 
 i.fa-spinner{
@@ -36,7 +37,7 @@ i.fa-spinner{
     /*animation: 
         name duration timing-function 
         delay iteration-count direction fill-mode;*/
-    animation: rotate_spinner 5s  linear 0s ;
+    animation: rotate_spinner 4s  linear 0s ;
 }
 
 /*++++++++++++++++++++++++++ design et animation icone HEART */
@@ -47,6 +48,8 @@ div.icon_container{
     position: relative;
     width: 30px;
     height: 30px;
+    margin-top: 20px;
+    margin-right: 15px;
     input.heart{
         display:none;
     }
